@@ -6,12 +6,43 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
     <title>Kareem Shaban</title>
-    <meta content="" name="description">
-    <meta content="" name="keywords">
+    @php
+        $metaData = App\Models\MetaData::pluck('value', 'key')->toArray(); // Populate the $metaData property
+    @endphp
+
+    <meta content="{{ $metaData['description'] }}" name="description">
+    <meta content="{{ $metaData['keywords'] }}" name="keywords">
+
+    <!-- Add a canonical tag to specify the preferred version of the page -->
+    <link rel="canonical" href="{{ $metaData['canonical_link'] }}">
+
+    <!-- Add Open Graph metadata for social media sharing -->
+    <meta property="og:title" content="{{ $metaData['og:title'] }}">
+    <meta property="og:description" content="{{ $metaData['og:description'] }}">
+    <meta property="og:url" content="{{ $metaData['og:url'] }}">
+    <meta property="og:type" content="{{ $metaData['og:type'] }}">
+    <meta property="og:site_name" content="{{ $metaData['og:site_name'] }}">
+    <meta property="article:publisher" content="{{ $metaData['article:publisher'] }}">
+    <meta property="og:updated_time" content="{{ $metaData['og:updated_time'] }}">
+    <meta property="og:image" content="{{ $metaData['og:image'] }}">
+    <meta property="og:image:secure_url" content="{{ $metaData['og:image:secure_url'] }}">
+    <meta property="og:image:width" content="{{ $metaData['og:image:width'] }}">
+    <meta property="og:image:height" content="{{ $metaData['og:image:height'] }}">
+    <meta property="og:image:alt" content="{{ $metaData['og:image:alt'] }}">
+    <meta property="og:image:type" content="{{ $metaData['og:image:type'] }}">
+    <meta property="article:published_time" content="{{ $metaData['article:published_time'] }}">
+    <meta property="article:modified_time" content="{{ $metaData['article:modified_time'] }}">
+
+    <!-- Add Twitter Card metadata for Twitter sharing -->
+    <meta name="twitter:card" content="{{ $metaData['twitter:card'] }}">
+    <meta name="twitter:title" content="{{ $metaData['twitter:title'] }}">
+    <meta name="twitter:description" content="{{ $metaData['twitter:description'] }}">
+    <meta name="twitter:image" content="{{ $metaData['twitter:image'] }}">
+
 
     <!-- Favicons -->
-    <link href="{{ asset('frontend/template2/assets') }}/img/favicon.png" rel="icon">
-    <link href="{{ asset('frontend/template2/assets') }}/img/apple-touch-icon.png" rel="apple-touch-icon">
+    <link href="{{ asset('frontend/template2/assets/img/favicon.png') }}" rel="icon">
+    <link href="{{ asset('frontend/template2/assets/img/apple-touch-icon.png') }}" rel="apple-touch-icon">
 
     <!-- Google Fonts -->
     <link
@@ -30,6 +61,38 @@
     <!-- Template Main CSS File -->
     <link href="{{ asset('frontend/template2/assets/css/style.css') }}" rel="stylesheet">
 
+    <style>
+        /*--------------------------------------------------------------
+                            # Whatsapp button Section
+                            --------------------------------------------------------------*/
+
+        .whatsapp-button {
+            position: fixed;
+            bottom: 80px;
+            right: 20px;
+            z-index: 999;
+            animation: whatsapp-button-animation 1s infinite;
+        }
+
+        .whatsapp-icon {
+            width: 80px;
+            height: 80px;
+        }
+
+        @keyframes whatsapp-button-animation {
+            0% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+
+            100% {
+                transform: translateY(0);
+            }
+        }
+    </style>
     <!-- =======================================================
   * Template Name: iPortfolio - v1.5.0
   * Template URL: https://bootstrapmade.com/iportfolio-bootstrap-portfolio-websites-template/
@@ -40,23 +103,55 @@
 
 <body>
 
+
     <!-- ======= Mobile nav toggle button ======= -->
-    <button type="button" class="mobile-nav-toggle d-xl-none"><i class="icofont-navigation-menu"></i></button>
+    <button type="button" name="menu-button" class="mobile-nav-toggle d-xl-none"><i
+            class="icofont-navigation-menu"></i></button>
 
     <!-- ======= Header ======= -->
     <header id="header">
+
+        {{-- temporary --}}
+
+        @php
+            $portfolioImages = App\Models\PortfolioImage::pluck('image', 'image_name')->toArray();
+            // Map the array to add the image_url attribute to each element
+            $portfolioImages = collect($portfolioImages)
+                ->map(function ($image, $image_name) {
+                    $portfolioImage = new App\Models\PortfolioImage();
+                    $portfolioImage->image = $image;
+                    $portfolioImage->image_name = $image_name;
+                    // Add the image_url attribute
+                    $portfolioImage->image_url = $portfolioImage->image_url;
+                    return $portfolioImage;
+                })
+                ->toArray();
+        @endphp
+
+        {{-- end temporary --}}
+
+
         <div class="d-flex flex-column">
 
             <div class="profile">
-                <img src="{{ asset('frontend/template2/assets/img/profile-img.jpg') }}" alt=""
+                <img src="{{ $portfolioImages['personal']['image_url'] }}" alt=""
                     class="img-fluid rounded-circle">
                 <h1 class="text-light"><a href="">Kareem Shaban</a></h1>
                 <div class="social-links mt-3 text-center">
-                    <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-                    <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-                    <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-                    <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
-                    <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+                    <a href="#" class="twitter">
+                        <span class="visually-hidden">Twitter</span>
+                        <i class="bx bxl-twitter"></i>
+                    </a>
+                    <a href="#" class="facebook">
+                        <span class="visually-hidden">Facebook</span>
+                        <i class="bx bxl-facebook"></i>
+                    </a>
+                    <a href="#" class="instagram">
+                        <span class="visually-hidden">Instagram</span>
+                        <i class="bx bxl-instagram"></i></a>
+                    <a href="#" class="linkedin">
+                        <span class="visually-hidden">Linked In</span>
+                        <i class="bx bxl-linkedin"></i></a>
                 </div>
             </div>
 
@@ -73,10 +168,14 @@
 
                 </ul>
             </nav><!-- .nav-menu -->
-            <button type="button" class="mobile-nav-toggle d-xl-none"><i class="icofont-navigation-menu"></i></button>
+            <button type="button" class="mobile-nav-toggle d-xl-none"><i
+                    class="icofont-navigation-menu"></i></button>
 
         </div>
     </header><!-- End Header -->
+
+
+
 
 
     @yield('content')
@@ -94,7 +193,14 @@
         </div>
     </footer><!-- End  Footer --> --}}
 
-    <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
+    {{-- <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a> --}}
+
+    <!-- ======= Whatsapp button ======= -->
+    <!-- 01553582509  -->
+    <a href="https://api.whatsapp.com/send?phone=01553582509" target="_blank" class="whatsapp-button">
+        <img src="{{ asset('frontend/template2/assets/img/whatsapp_logo.png') }}" alt="WhatsApp"
+            class="whatsapp-icon">
+    </a>
 
     <!-- Vendor JS Files -->
     <script src="{{ asset('frontend/template2/assets/vendor/jquery/jquery.min.js') }}"></script>

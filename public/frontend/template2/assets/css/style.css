@@ -56,6 +56,33 @@ h1, h2, h3, h4, h5, h6 {
   transition: background 0.2s ease-in-out;
 }
 
+
+/* .whatsapp-button {
+  position: fixed;
+  width: 40px;
+  height: 40px;
+  border-radius: 50px;
+  right: 15px;
+  bottom: 15px;
+  background: #149ddd;
+  color: #fff;
+  transition: display 0.5s ease-in-out;
+  z-index: 99999;
+}
+
+.whatsapp-button i {
+  font-size: 24px;
+  position: absolute;
+  top: 7px;
+  left: 8px;
+}
+
+.whatsapp-button:hover {
+  color: #fff;
+  background: #2eafec;
+  transition: background 0.2s ease-in-out;
+} */
+
 /*--------------------------------------------------------------
 # Header
 --------------------------------------------------------------*/
@@ -651,9 +678,19 @@ section {
 }
 
 .testimonials .testimonial-item .testimonial-img {
-  width: 90px;
+  /* width: 90px; */
   border-radius: 50%;
   margin: 0 auto;
+}
+
+.owl-carousel .owl-item img {
+  width: 90px;
+}
+
+.visually-hidden {
+  position: absolute;
+  top: -9999em;
+  left: -9999em;
 }
 
 .testimonials .testimonial-item h3 {
