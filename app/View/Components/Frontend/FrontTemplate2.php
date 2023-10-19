@@ -1,8 +1,7 @@
 <?php
 
-namespace App\View\Components\frontend;
+namespace App\View\Components\Frontend;
 
-use App\Models\MetaData;
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
