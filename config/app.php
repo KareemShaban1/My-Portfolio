@@ -161,7 +161,7 @@ return [
          */
         CyrildeWit\EloquentViewable\EloquentViewableServiceProvider::class,
         Rap2hpoutre\LaravelLogViewer\LaravelLogViewerServiceProvider::class,
-        Barryvdh\Debugbar\ServiceProvider::class,
+        // Barryvdh\Debugbar\ServiceProvider::class,
 
 
         /*
