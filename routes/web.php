@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Backend\InformationController;
 use App\Http\Controllers\Backend\MetaDataController;
 use App\Http\Controllers\Backend\PDFController;
@@ -65,9 +66,8 @@ Route::group([
   ],
 
 ], function () {
-    Route::get('/dashboard', function () {
-        return view('backend.pages.dashboard.index');
-    })->name('dashboard');
+    
+    Route::get('/dashboard', [DashboardController::class,'index'])->name('dashboard');
     
 
     Route::group([],function () {
@@ -122,6 +122,8 @@ Route::group([
     Route::get('/pdfs', [PDFController::class,'index'])->name('PDFs');
     Route::get('/add_pdf', [PDFController::class,'add'])->name('PDFs.add');
     Route::post('/upload-pdf', [PDFController::class,'store'])->name('PDFs.store');
+
+    Route::get('logs', [\Rap2hpoutre\LaravelLogViewer\LogViewerController::class, 'index']);
 
 
     

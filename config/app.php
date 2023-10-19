@@ -160,6 +160,8 @@ return [
          * Package Service Providers...
          */
         CyrildeWit\EloquentViewable\EloquentViewableServiceProvider::class,
+        Rap2hpoutre\LaravelLogViewer\LaravelLogViewerServiceProvider::class,
+        Barryvdh\Debugbar\ServiceProvider::class,
 
 
         /*
@@ -186,6 +188,7 @@ return [
     */
 
     'aliases' => Facade::defaultAliases()->merge([
+        'Debugbar' => Barryvdh\Debugbar\Facades\Debugbar::class,
         // 'Example' => App\Facades\Example::class,
     ])->toArray(),
 
