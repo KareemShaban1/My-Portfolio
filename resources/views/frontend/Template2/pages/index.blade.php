@@ -1,6 +1,20 @@
 @extends('frontend.Template2.layouts.front')
 
 @push('styles')
+    <style>
+        button {
+            background-color: #0073e6;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #005bbf;
+        }
+    </style>
 @endpush
 
 @section('content')
@@ -8,7 +22,7 @@
     <section id="hero" class="d-flex flex-column justify-content-center align-items-center">
         <div class="hero-container" data-aos="fade-in">
             <h1>Kareem Shaban</h1>
-            <p>I'm <span class="typed" data-typed-items="Designer, Developer, Freelancer, Photographer"></span></p>
+            <p>I'm <span class="typed" data-typed-items="Web Developer, Freelancer, Web Penetration Tester"></span></p>
         </div>
     </section><!-- End Hero -->
 
@@ -24,9 +38,15 @@
                 </div>
 
                 <div class="row">
-                    <div class="col-lg-4" data-aos="fade-right">
-                        <img src="{{ $portfolioImages['personal']['image_url'] }}" class="img-fluid" alt="">
-                    </div>
+                    @isset($portfolioImages['about_image'])
+                        @if ($portfolioImages['about_image']['image'] != null)
+                            <div class="col-lg-4" data-aos="fade-right">
+                                <img src="{{ $portfolioImages['personal']['image_url'] }}" class="img-fluid" alt="">
+                            </div>
+                        @endif
+                    @endisset
+
+
                     <div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
                         <h3>Full Stack Web Developer.</h3>
                         {{-- <p class="font-italic">
@@ -255,11 +275,19 @@
         <section id="resume" class="resume">
             <div class="container">
 
-                <div class="section-title">
+                <div class="section-title"
+                    style="    display: flex;
+                justify-content: space-between;
+                align-items: center">
                     <h2>Resume</h2>
                     {{-- <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit
                         sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias
                         ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p> --}}
+
+
+                    <a href="{{ asset('storage/' . $cv_pdf->file) }}" download>
+                        <button class="btn btn-primary">Download CV</button>
+                    </a>
                 </div>
 
                 <div class="row">

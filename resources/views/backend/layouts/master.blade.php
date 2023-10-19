@@ -33,12 +33,13 @@
 
     <!--- Style css -->
     @if (App::getLocale() == 'en')
-        <link rel="stylesheet" href="{{ asset('backend/dist/css/adminlte.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('backend/dist/css/ltr.css') }}">
     @else
         <!-- Custom style for RTL -->
-        <link rel="stylesheet" href="{{ asset('backend/dist/css/custom.css') }}">
+        <link rel="stylesheet" href="{{ asset('backend/dist/css/rtl.css') }}">
     @endif
 
+    <link rel="stylesheet" href="{{ asset('backend/dist/css/style.css') }}">
 
     @stack('styles')
 

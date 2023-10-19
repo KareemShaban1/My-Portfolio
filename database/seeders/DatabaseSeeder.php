@@ -21,6 +21,8 @@ class DatabaseSeeder extends Seeder
         // $this->call(ProjectsTableSeeder::class);
         $this->call(UserSeeder::class);
         $this->call(MetaDataSeeder::class);
+        $this->call(PortfolioImageSeeder::class);
+
 
 
 

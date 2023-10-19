@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use App\Models\Information;
+use App\Models\PdfFiles;
 use App\Models\PortfolioImage;
 use App\Models\Project;
 use App\Models\Projects;
@@ -33,9 +34,11 @@ class Template2Controller extends Controller
             return $portfolioImage;
         })->toArray();
 
+        $cv_pdf = PdfFiles::where('name','cv')->first();
+
 
         return view('frontend.Template2.pages.index',
-        compact('information','projects','categories','testimonials','portfolioImages'));
+        compact('information','projects','categories','testimonials','portfolioImages','cv_pdf'));
     }
 
     public function projectDetails($id){

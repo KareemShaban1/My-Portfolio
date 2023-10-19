@@ -20,6 +20,7 @@ return new class extends Migration
             $table->longText('info');
             $table->string('main_image');
             $table->string('images')->nullable();
+            $table->enum('is_active',['active','not_active'])->default('active');
             $table->foreignId('category_id')->nullable()->constrained('projects_category', 'id')->nullOnDelete();
             $table->timestamps();
         });

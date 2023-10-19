@@ -16,7 +16,7 @@
                           alt="User Image">
                   </div>
                   <div class="info">
-                      <a href="#" class="d-block">Kareem Shaban</a>
+                      <a href="#" class="d-block">{{ Auth::user()->name }}</a>
                   </div>
               </div>
 
@@ -41,7 +41,7 @@
                               <i class="nav-icon fas fa-copy"></i>
                               <p>
                                   Layout Options
-                                  <i class="fas fa-angle-left right"></i>
+                                  <i class="fas fa-angle-{{ trans('sidebar_trans.icon') }} right"></i>
                                   <span class="badge badge-info right">6</span>
                               </p>
                           </a>
@@ -93,7 +93,7 @@
                               <i class="nav-icon fas fa-copy"></i>
                               <p>
                                   Portofolio Information
-                                  <i class="fas fa-angle-left right"></i>
+                                  <i class="fas fa-angle-{{ trans('sidebar_trans.icon') }} right"></i>
 
                               </p>
                           </a>
@@ -123,7 +123,7 @@
                               <i class="nav-icon fas fa-copy"></i>
                               <p>
                                   Projects Categories
-                                  <i class="fas fa-angle-left right"></i>
+                                  <i class="fas fa-angle-{{ trans('sidebar_trans.icon') }} right"></i>
 
                               </p>
                           </a>
@@ -152,7 +152,7 @@
                               <i class="nav-icon fas fa-copy"></i>
                               <p>
                                   Projects
-                                  <i class="fas fa-angle-left right"></i>
+                                  <i class="fas fa-angle-{{ trans('sidebar_trans.icon') }} right"></i>
 
                               </p>
                           </a>
@@ -182,7 +182,7 @@
                               <i class="nav-icon fas fa-copy"></i>
                               <p>
                                   Testimonial
-                                  <i class="fas fa-angle-left right"></i>
+                                  <i class="fas fa-angle-{{ trans('sidebar_trans.icon') }} right"></i>
 
                               </p>
                           </a>
@@ -211,7 +211,7 @@
                               <i class="nav-icon fas fa-copy"></i>
                               <p>
                                   Meta Data
-                                  <i class="fas fa-angle-left right"></i>
+                                  <i class="fas fa-angle-{{ trans('sidebar_trans.icon') }} right"></i>
 
                               </p>
                           </a>
@@ -240,7 +240,7 @@
                               <i class="nav-icon fas fa-copy"></i>
                               <p>
                                   Portfolio Images
-                                  <i class="fas fa-angle-left right"></i>
+                                  <i class="fas fa-angle-{{ trans('sidebar_trans.icon') }} right"></i>
 
                               </p>
                           </a>
@@ -262,6 +262,33 @@
                           </ul>
                       </li>
 
+                      {{-- PDFs --}}
+                      <li class="nav-item has-treeview">
+                          <a href="#" class="nav-link">
+                              <i class="nav-icon fas fa-copy"></i>
+                              <p>
+                                  PDFs
+                                  <i class="fas fa-angle-{{ trans('sidebar_trans.icon') }} right"></i>
+
+                              </p>
+                          </a>
+                          <ul class="nav nav-treeview">
+                              <li class="nav-item">
+                                  <a href="{{ route('PDFs.add') }}" class="nav-link">
+                                      <i class="far fa-circle nav-icon"></i>
+                                      <p>Add PDF</p>
+                                  </a>
+                              </li>
+                              <li class="nav-item">
+                                  <a href="{{ route('PDFs') }}" class="nav-link">
+                                      <i class="far fa-circle nav-icon"></i>
+                                      <p>All PDFs</p>
+                                  </a>
+                              </li>
+
+
+                          </ul>
+                      </li>
 
 
 

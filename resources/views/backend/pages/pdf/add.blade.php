@@ -2,26 +2,25 @@
 
 
 @section('content')
-
     <div class="row">
         <div class="col-md-8">
             <!-- general form elements -->
             <div class="card card-primary">
                 <div class="card-header">
-                    <h3 class="card-title">Add Meta Data</h3>
+                    <h3 class="card-title">Add PDF</h3>
                 </div>
                 <!-- /.card-header -->
                 <!-- form start -->
-                <form action="{{ route('metaData.store') }}" method="POST">
+                <form action="{{ route('PDFs.store') }}" method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="card-body">
                         <div class="form-group">
-                            <label for="key">Key</label>
-                            <input type="text" class="form-control" id="key" name="key" placeholder="Key">
+                            <label for="name">Name</label>
+                            <input type="text" class="form-control" id="name" name="name" placeholder="Key">
                         </div>
                         <div class="form-group">
-                            <label for="value">Value</label>
-                            <input type="text" class="form-control" id="value" name="value" placeholder="Value">
+                            <label for="file">File</label>
+                            <input type="file" class="form-control" id="file" name="file">
                         </div>
 
 

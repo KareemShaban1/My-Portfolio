@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Backend\InformationController;
 use App\Http\Controllers\Backend\MetaDataController;
+use App\Http\Controllers\Backend\PDFController;
 use App\Http\Controllers\Backend\PortfolioImageController;
 use App\Http\Controllers\Backend\ProjectsCategoryController;
 use App\Http\Controllers\Backend\ProjectsController;
@@ -117,6 +118,11 @@ Route::group([
         Route::get('/edit_portfolioImage/{id}',[PortfolioImageController::class,'edit'])->name('portfolioImages.edit');
         Route::put('/update_portfolioImage/{id}',[PortfolioImageController::class,'update'])->name('portfolioImages.update');
     });
+
+    Route::get('/pdfs', [PDFController::class,'index'])->name('PDFs');
+    Route::get('/add_pdf', [PDFController::class,'add'])->name('PDFs.add');
+    Route::post('/upload-pdf', [PDFController::class,'store'])->name('PDFs.store');
+
 
     
 });

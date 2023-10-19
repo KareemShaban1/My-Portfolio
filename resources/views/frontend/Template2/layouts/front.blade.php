@@ -134,10 +134,51 @@
         <div class="d-flex flex-column">
 
             <div class="profile">
-                <img src="{{ $portfolioImages['personal']['image_url'] }}" alt=""
-                    class="img-fluid rounded-circle">
-                <h1 class="text-light"><a href="">Kareem Shaban</a></h1>
-                <div class="social-links mt-3 text-center">
+                @isset($portfolioImages['personal'])
+                    @if ($portfolioImages['personal']['image'] != null)
+                        <img src="{{ $portfolioImages['personal']['image_url'] }}" alt=""
+                            class="img-fluid rounded-circle">
+                        <h1 class="text-light" style="margin-top: 60px"><a href="">Kareem Shaban</a></h1>
+                        <div class="social-links mt-3 text-center">
+                            <a href="#" class="twitter">
+                                <span class="visually-hidden">Twitter</span>
+                                <i class="bx bxl-twitter"></i>
+                            </a>
+                            <a href="#" class="facebook">
+                                <span class="visually-hidden">Facebook</span>
+                                <i class="bx bxl-facebook"></i>
+                            </a>
+                            <a href="#" class="instagram">
+                                <span class="visually-hidden">Instagram</span>
+                                <i class="bx bxl-instagram"></i></a>
+                            <a href="#" class="linkedin">
+                                <span class="visually-hidden">Linked In</span>
+                                <i class="bx bxl-linkedin"></i></a>
+                        </div>
+                    @else
+                        <h1 class="text-light" style="margin-top:100px"><a href="">Kareem Shaban</a></h1>
+                        <div class="social-links mt-3 text-center" style="margin-bottom:50px">
+                            <a href="#" class="twitter">
+                                <span class="visually-hidden">Twitter</span>
+                                <i class="bx bxl-twitter"></i>
+                            </a>
+                            <a href="#" class="facebook">
+                                <span class="visually-hidden">Facebook</span>
+                                <i class="bx bxl-facebook"></i>
+                            </a>
+                            <a href="#" class="instagram">
+                                <span class="visually-hidden">Instagram</span>
+                                <i class="bx bxl-instagram"></i></a>
+                            <a href="#" class="linkedin">
+                                <span class="visually-hidden">Linked In</span>
+                                <i class="bx bxl-linkedin"></i></a>
+                        </div>
+                    @endif
+                @endisset
+
+
+                {{-- <h1 class="text-light" style="margin-top: 0px"><a href="">Kareem Shaban</a></h1> --}}
+                {{-- <div class="social-links mt-3 text-center">
                     <a href="#" class="twitter">
                         <span class="visually-hidden">Twitter</span>
                         <i class="bx bxl-twitter"></i>
@@ -152,7 +193,7 @@
                     <a href="#" class="linkedin">
                         <span class="visually-hidden">Linked In</span>
                         <i class="bx bxl-linkedin"></i></a>
-                </div>
+                </div> --}}
             </div>
 
             <nav class="nav-menu">

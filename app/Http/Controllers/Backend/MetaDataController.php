@@ -14,6 +14,7 @@ class MetaDataController extends Controller
     
     public function index(){
         $metaData = MetaData::all();
+        dd($metaData);
         return view('backend.pages.metaData.index',compact('metaData'));
         
     }
