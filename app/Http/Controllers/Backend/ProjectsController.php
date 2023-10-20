@@ -40,7 +40,7 @@ class ProjectsController extends Controller
         $data = $request->except('images','main_image');
         
         $images_path = $this->handleManyImagesUpload($request, $project,'images','projects');
-        $main_image_path = $this->handleOneImageUpload($request, $project,'images','main_image');
+        $main_image_path = $this->handleOneImageUpload($request, $project,'main_image','projects');
 
         
         $data['images'] =  $images_path;
@@ -63,12 +63,20 @@ class ProjectsController extends Controller
         
         $project = Project::findOrFail($id); 
         $data = $request->except('images','main_image');
+
+        if($request->main_image != null){
+            $main_image_path = $this->handleOneImageUpload($request, $project,'main_image','projects');
+            $data['main_image'] =  $main_image_path ? $main_image_path : $project->main_image;
+
+
+        }elseif($request->images != null){
+            $images_path = $this->handleManyImagesUpload($request, $project,'images','projects');
+        // dd($images_path);
+            $data['images'] =  $images_path ? $images_path : $project->images;
+
+        }
         
-        $images_path = $this->handleManyImagesUpload($request, $project,'images','projects');
-        $main_image_path = $this->handleOneImageUpload($request, $project,'main_image','projects');
         
-        $data['images'] =  $images_path;
-        $data['main_image'] =  $main_image_path;
         
         $project->update($data);
         return redirect()->route('projects');

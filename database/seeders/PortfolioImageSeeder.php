@@ -17,7 +17,7 @@ class PortfolioImageSeeder extends Seeder
                //
         //
          // Define the data you want to insert into the 'information' table
-         $data = [
+        $data = [
             [
                 'image_name' => 'personal',
                 'image' => 'img1.jpg',

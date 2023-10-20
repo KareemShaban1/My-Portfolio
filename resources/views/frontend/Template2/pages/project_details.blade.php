@@ -19,7 +19,6 @@
             </div>
         </section>
 
-        <!-- ======= Portfolio Details Section ======= -->
         <section id="portfolio-details" class="portfolio-details">
             <div class="container">
 
@@ -30,10 +29,6 @@
                         <?php $images = explode('|', $project->images); ?>
                         @foreach ($images as $key => $value)
                             <img src="{{ asset('storage/projects/' . $value) }}" class="img-fluid" alt="">
-                            {{-- <img src="{{ asset('frontend/template2/assets/img/portfolio-details-2.jpg') }}" class="img-fluid"
-                            alt="">
-                        <img src="{{ asset('frontend/template2/assets/img/portfolio-details-3.jpg') }}" class="img-fluid"
-                            alt=""> --}}
                         @endforeach
                     </div>
 
@@ -41,23 +36,25 @@
                         <h3>Project information</h3>
                         <ul>
                             <li><strong>Category</strong>: {{ $project->project_category->name }}</li>
-                            <li><strong>Client</strong>: {{ $project->client }}</li>
+                            @isset($project->client)
+                                <li><strong>Client</strong>: {{ $project->client }}</li>
+                            @endisset
                             <li><strong>Project date</strong>: {{ $project->date }}</li>
-                            <li><strong>Project URL</strong>: <a href="#">{{ $project->url }}</a></li>
+                            <li><strong>Project URL</strong>: <a href="{{ $project->url }}">{{ $project->url }}</a></li>
                         </ul>
                     </div>
 
                 </div>
 
                 <div class="portfolio-description">
+
                     <h2>{{ $project->title }}</h2>
                     <p>
-                        {{ $project->info }}
+                        {!! $project->info !!}
                     </p>
                 </div>
 
             </div>
-        </section><!-- End Portfolio Details Section -->
-
+        </section>
     </main>
 @endsection

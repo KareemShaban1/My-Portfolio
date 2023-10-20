@@ -285,16 +285,19 @@
                         ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p> --}}
 
 
-                    <a href="{{ asset('storage/' . $cv_pdf->file) }}" download>
-                        <button class="btn btn-primary">Download CV</button>
-                    </a>
+                    @isset($cv_pdf->file)
+                        <a href="{{ asset('storage/' . $cv_pdf->file) }}" download>
+                            <button class="btn btn-primary">Download CV</button>
+                        </a>
+                    @endisset
+
                 </div>
 
                 <div class="row">
                     <div class="col-lg-6" data-aos="fade-up">
-                        <h3 class="resume-title">Summary</h3>
+                        {{-- <h3 class="resume-title">Summary</h3>
                         <div class="resume-item pb-0">
-                            <h4>Alex Smith</h4>
+                            <h4>Kareem Shaban</h4>
                             <p><em>Innovative and deadline-driven Graphic Designer with 3+ years of experience designing
                                     and developing user-centered digital/print marketing material from initial concept
                                     to final, polished deliverable.</em></p>
@@ -303,7 +306,7 @@
                                 <li>(123) 456-7891</li>
                                 <li>alice.barkley@example.com</li>
                             </ul>
-                        </div>
+                        </div> --}}
 
                         <h3 class="resume-title">Education</h3>
                         <div class="resume-item">
@@ -451,9 +454,9 @@
 
                 <div class="section-title">
                     <h2>Portfolio</h2>
-                    <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit
+                    {{-- <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit
                         sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias
-                        ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+                        ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p> --}}
                 </div>
 
                 <div class="row" data-aos="fade-up">
@@ -475,10 +478,10 @@
                     @foreach ($projects as $project)
                         <div class="col-lg-4 col-md-6 portfolio-item filter-{{ $project->project_category->name }}">
                             <div class="portfolio-wrap">
-                                <img src="{{ $project->main_image_url }}" class="img-fluid" alt="">
+                                <img src="{{ $project->main_image_url }}" alt="" height="300" width="300">
                                 <div class="portfolio-links">
                                     <a href="{{ $project->main_image_url }}" data-gall="portfolioGallery"
-                                        class="venobox" title="App 1"><i class="bx bx-plus"></i></a>
+                                        class="venobox" title="{{ $project->title }}"><i class="bx bx-plus"></i></a>
                                     <a href="{{ route('template2.projectDetails', $project->id) }}"
                                         title="More Details"><i class="bx bx-link"></i></a>
                                 </div>
@@ -725,9 +728,9 @@
 
                 <div class="section-title">
                     <h2>Contact</h2>
-                    <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit
+                    {{-- <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit
                         sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias
-                        ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+                        ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p> --}}
                 </div>
 
                 <div class="row" data-aos="fade-in">

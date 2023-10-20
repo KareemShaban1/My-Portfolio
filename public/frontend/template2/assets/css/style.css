@@ -685,7 +685,7 @@ section {
 }
 
 .owl-carousel .owl-item img {
-  width: 90px;
+  /* width: 90px; */
 }
 
 .visually-hidden {
