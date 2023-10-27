@@ -478,11 +478,11 @@
                     @foreach ($projects as $project)
                         <div class="col-lg-4 col-md-6 portfolio-item filter-{{ $project->project_category->name }}">
                             <div class="portfolio-wrap">
-                                <img src="{{ $project->main_image_url }}" alt="" height="300" width="300">
+                                <img src="{{ $project->main_image_url }}" alt="" height="300" width="350">
                                 <div class="portfolio-links">
                                     <a href="{{ $project->main_image_url }}" data-gall="portfolioGallery"
                                         class="venobox" title="{{ $project->title }}"><i class="bx bx-plus"></i></a>
-                                    <a href="{{ route('template2.projectDetails', $project->id) }}"
+                                    <a href="{{ route('template2.projectDetails', $project->id) }}" target="_blank"
                                         title="More Details"><i class="bx bx-link"></i></a>
                                 </div>
                             </div>
@@ -665,45 +665,24 @@
 
 
         <!-- ======= Testimonials Section ======= -->
-        <section id="testimonials" class="testimonials section-bg">
-            <div class="container">
+        @if ($testimonials->count() > 0)
+            <section id="testimonials" class="testimonials section-bg">
+                <div class="container">
 
-                <div class="section-title">
-                    <h2>Testimonials</h2>
-                    {{-- <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit
+                    <div class="section-title">
+                        <h2>Testimonials</h2>
+                        {{-- <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit
                         sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias
                         ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p> --}}
-                </div>
-
-                @if ($testimonials->count() > 3)
-                    <div class="owl-carousel testimonials-carousel">
-
-                        @foreach ($testimonials as $testimonial)
-                            @php
-                                $cleanedContent = strip_tags($testimonial->text);
-                            @endphp
-                            <div class="testimonial-item" data-aos="fade-up">
-                                <p>
-                                    <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                                    {{ $cleanedContent }}
-                                    <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                                </p>
-                                <img src="{{ $testimonial->client_image_url }}" class="testimonial-img" width="90"
-                                    height="90" alt="">
-                                <h3>{{ $testimonial->client_name }}</h3>
-                                <h4>{{ $testimonial->client_job }}</h4>
-                            </div>
-                        @endforeach
-
                     </div>
-                @else
-                    <div class="row">
-                        @foreach ($testimonials as $testimonial)
-                            @php
-                                $cleanedContent = strip_tags($testimonial->text);
-                            @endphp
 
-                            <div class="col-md-4">
+                    @if ($testimonials->count() > 3)
+                        <div class="owl-carousel testimonials-carousel">
+
+                            @foreach ($testimonials as $testimonial)
+                                @php
+                                    $cleanedContent = strip_tags($testimonial->text);
+                                @endphp
                                 <div class="testimonial-item" data-aos="fade-up">
                                     <p>
                                         <i class="bx bxs-quote-alt-left quote-icon-left"></i>
@@ -711,16 +690,40 @@
                                         <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                                     </p>
                                     <img src="{{ $testimonial->client_image_url }}" class="testimonial-img"
-                                        alt="">
+                                        width="90" height="90" alt="">
                                     <h3>{{ $testimonial->client_name }}</h3>
                                     <h4>{{ $testimonial->client_job }}</h4>
                                 </div>
-                            </div>
-                        @endforeach
-                    </div>
-                @endif
-            </div>
-        </section><!-- End Testimonials Section -->
+                            @endforeach
+
+                        </div>
+                    @else
+                        <div class="row">
+                            @foreach ($testimonials as $testimonial)
+                                @php
+                                    $cleanedContent = strip_tags($testimonial->text);
+                                @endphp
+
+                                <div class="col-md-4">
+                                    <div class="testimonial-item" data-aos="fade-up">
+                                        <p>
+                                            <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                                            {{ $cleanedContent }}
+                                            <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                                        </p>
+                                        <img src="{{ $testimonial->client_image_url }}" class="testimonial-img"
+                                            alt="">
+                                        <h3>{{ $testimonial->client_name }}</h3>
+                                        <h4>{{ $testimonial->client_job }}</h4>
+                                    </div>
+                                </div>
+                            @endforeach
+                        </div>
+                    @endif
+                </div>
+            </section>
+        @endif
+        <!-- End Testimonials Section -->
 
         <!-- ======= Contact Section ======= -->
         <section id="contact" class="contact">
@@ -740,30 +743,33 @@
                             <div class="address">
                                 <i class="icofont-google-map"></i>
                                 <h4>Location:</h4>
-                                <p>A108 Adam Street, New York, NY 535022</p>
+                                <p> Cairo , Egypt . </p>
                             </div>
 
                             <div class="email">
                                 <i class="icofont-envelope"></i>
                                 <h4>Email:</h4>
-                                <p>info@example.com</p>
+                                <p>kareemshaban120@gmail.com</p>
                             </div>
 
                             <div class="phone">
                                 <i class="icofont-phone"></i>
                                 <h4>Call:</h4>
-                                <p>+1 5589 55488 55s</p>
+                                <p>+2 01090537394</p>
                             </div>
 
-                            <iframe title="map"
-                                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12097.433213460943!2d-74.0062269!3d40.7101282!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89d1fe6bc499443!2sDowntown+Conference+Center!5e0!3m2!1smk!2sbg!4v1539943755621"
-                                frameborder="0" style="border:0; width: 100%; height: 290px;" allowfullscreen></iframe>
+                            <iframe title="Cairo Map"
+                                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7248.906218722456!2d31.2344268!3d30.0444196!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzMnMjUuNCJF!5e0!3m2!1sen!2sus!4v1642298571202"
+                                frameborder="0" style="border:0; width: 100%; height: 290px;" allowfullscreen>
+                            </iframe>
+
                         </div>
 
                     </div>
 
                     <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
-                        <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+                        <form action="{{ route('sendEmail') }}" method="post" role="form" class="php-email-form">
+                            @csrf
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label for="name">Your Name</label>
@@ -795,6 +801,7 @@
                                 <div class="error-message"></div>
                                 <div class="sent-message">Your message has been sent. Thank you!</div>
                             </div>
+                            <div id="message-container"></div>
                             <div class="text-center"><button type="submit">Send Message</button></div>
                         </form>
                     </div>

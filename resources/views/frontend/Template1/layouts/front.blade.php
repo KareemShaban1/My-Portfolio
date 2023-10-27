@@ -48,6 +48,7 @@
     <!---------------------- end of preloader ---------------------->
 
     <!---------------------- navigator starts ---------------------->
+
     <div class="main-navigator">
         <span class="mdi mdi-menu"></span>
         <ul class="navigator-list">
@@ -60,6 +61,8 @@
         </ul>
     </div>
     <!---------------------- end of navigator ---------------------->
+
+
 
     <!---------------------- mobile-menu starts ---------------------->
 

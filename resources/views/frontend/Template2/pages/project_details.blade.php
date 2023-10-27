@@ -9,10 +9,10 @@
             <div class="container">
 
                 <div class="d-flex justify-content-between align-items-center">
-                    <h2>Portfoio Details</h2>
+                    <h2>Portfolio Details</h2>
                     <ol>
-                        <li><a href="index.html">Home</a></li>
-                        <li>Portfoio Details</li>
+                        <li><a href="{{ route('template2.home') }}">Home</a></li>
+                        <li>Portfolio Details</li>
                     </ol>
                 </div>
 

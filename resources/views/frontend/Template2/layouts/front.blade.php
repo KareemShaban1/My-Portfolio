@@ -41,7 +41,9 @@
 
 
     <!-- Favicons -->
-    <link href="{{ asset('frontend/template2/assets/img/favicon.png') }}" rel="icon">
+    {{-- <link href="{{ asset('frontend/template2/assets/img/favicon.png') }}" rel="icon"> --}}
+    <link href="{{ asset('frontend/template2/assets/img/img1.jpg') }}" rel="icon">
+
     <link href="{{ asset('frontend/template2/assets/img/apple-touch-icon.png') }}" rel="apple-touch-icon">
 
     <!-- Google Fonts -->
@@ -93,12 +95,7 @@
             }
         }
     </style>
-    <!-- =======================================================
-  * Template Name: iPortfolio - v1.5.0
-  * Template URL: https://bootstrapmade.com/iportfolio-bootstrap-portfolio-websites-template/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
+
 </head>
 
 <body>
@@ -148,10 +145,11 @@
                                 <span class="visually-hidden">Facebook</span>
                                 <i class="bx bxl-facebook"></i>
                             </a>
-                            <a href="#" class="instagram">
+                            {{-- <a href="#" class="instagram">
                                 <span class="visually-hidden">Instagram</span>
-                                <i class="bx bxl-instagram"></i></a>
-                            <a href="#" class="linkedin">
+                                <i class="bx bxl-instagram"></i></a> --}}
+                            <a href="https://www.linkedin.com/in/kareem-shaban-%F0%9F%87%B5%F0%9F%87%B8-91411b1b6/"
+                                class="linkedin">
                                 <span class="visually-hidden">Linked In</span>
                                 <i class="bx bxl-linkedin"></i></a>
                         </div>
@@ -166,10 +164,11 @@
                                 <span class="visually-hidden">Facebook</span>
                                 <i class="bx bxl-facebook"></i>
                             </a>
-                            <a href="#" class="instagram">
+                            {{-- <a href="#" class="instagram">
                                 <span class="visually-hidden">Instagram</span>
-                                <i class="bx bxl-instagram"></i></a>
-                            <a href="#" class="linkedin">
+                                <i class="bx bxl-instagram"></i></a> --}}
+                            <a href="https://www.linkedin.com/in/kareem-shaban-%F0%9F%87%B5%F0%9F%87%B8-91411b1b6/"
+                                class="linkedin">
                                 <span class="visually-hidden">Linked In</span>
                                 <i class="bx bxl-linkedin"></i></a>
                         </div>
@@ -197,17 +196,37 @@
             </div>
 
             <nav class="nav-menu">
-                <ul>
-                    <li class="active"><a href="#hero"><i class="bx bx-home"></i>
-                            <span>Home</span></a>
-                    </li>
-                    <li><a href="#about"><i class="bx bx-user"></i> <span>About</span></a></li>
-                    <li><a href="#resume"><i class="bx bx-file-blank"></i> <span>Resume</span></a></li>
-                    <li><a href="#portfolio"><i class="bx bx-book-content"></i> Portfolio</a></li>
-                    <li><a href="#services"><i class="bx bx-server"></i> Services</a></li>
-                    <li><a href="#contact"><i class="bx bx-envelope"></i> Contact</a></li>
+                @if (request()->routeIs('template2.projectDetails'))
+                    <ul>
+                        <li class="active"><a href="{{ route('template2.home') }}#hero"><i class="bx bx-home"></i>
+                                <span>Home</span></a>
+                        </li>
+                        <li><a href="{{ route('template2.home') }}#about"><i class="bx bx-user"></i>
+                                <span>About</span></a></li>
+                        <li><a href="{{ route('template2.home') }}#resume"><i class="bx bx-file-blank"></i>
+                                <span>Resume</span></a></li>
+                        <li><a href="{{ route('template2.home') }}#portfolio"><i class="bx bx-book-content"></i>
+                                Portfolio</a></li>
+                        <li><a href="{{ route('template2.home') }}#services"><i class="bx bx-server"></i>
+                                Services</a></li>
+                        <li><a href="{{ route('template2.home') }}#contact"><i class="bx bx-envelope"></i>
+                                Contact</a></li>
 
-                </ul>
+                    </ul>
+                @else
+                    <ul>
+                        <li class="active"><a href="#hero"><i class="bx bx-home"></i>
+                                <span>Home</span></a>
+                        </li>
+                        <li><a href="#about"><i class="bx bx-user"></i> <span>About</span></a></li>
+                        <li><a href="#resume"><i class="bx bx-file-blank"></i> <span>Resume</span></a></li>
+                        <li><a href="#portfolio"><i class="bx bx-book-content"></i> Portfolio</a></li>
+                        <li><a href="#services"><i class="bx bx-server"></i> Services</a></li>
+                        <li><a href="#contact"><i class="bx bx-envelope"></i> Contact</a></li>
+
+                    </ul>
+                @endif
+
             </nav><!-- .nav-menu -->
             <button type="button" class="mobile-nav-toggle d-xl-none"><i
                     class="icofont-navigation-menu"></i></button>
@@ -258,6 +277,26 @@
 
     <!-- Template Main JS File -->
     <script src="{{ asset('frontend/template2/assets/js/main.js') }}"></script>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            // Get the message from the Laravel session
+            var message = '{{ session('message') }}';
+
+            // Check if a message is available
+            if (message) {
+                // Display the message
+                $("#message-container").html(message).fadeIn();
+
+                // Automatically hide the message after 2 seconds
+                setTimeout(function() {
+                    $("#message-container").fadeOut();
+                }, 2000);
+            }
+        });
+    </script>
 
 </body>
 

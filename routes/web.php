@@ -8,6 +8,7 @@ use App\Http\Controllers\Backend\PortfolioImageController;
 use App\Http\Controllers\Backend\ProjectsCategoryController;
 use App\Http\Controllers\Backend\ProjectsController;
 use App\Http\Controllers\Backend\TestimonialsController;
+use App\Http\Controllers\Frontend\MailController;
 use App\Http\Controllers\Frontend\Template2Controller;
 use App\Models\Information;
 use App\Models\MetaData;
@@ -29,6 +30,9 @@ Route::get('/', [Template2Controller::class,'index'])->name('template2.home');
 Route::get('/project_details/{id}', [Template2Controller::class,'projectDetails'])->name('template2.projectDetails');
 
 
+Route::get('/mail-success', function(){
+    return view('emails.contact.success');
+})->name('mailSuccess');
 
 
 // template 2
@@ -69,6 +73,8 @@ Route::group([
     
     Route::get('/dashboard', [DashboardController::class,'index'])->name('dashboard');
     
+    Route::post('/send-email', [MailController::class,'sendEmail'])->name('sendEmail');
+
 
     Route::group([],function () {
         Route::get('/information',[InformationController::class,'index'])->name('information');
