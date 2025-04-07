@@ -23,6 +23,8 @@ class StorePortfolioImageRequest extends FormRequest
     {
         return [
             //
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image_name' => 'required',
         ];
     }
 }

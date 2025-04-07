@@ -5,10 +5,10 @@
     <!---------------------- next & prev btn starts ---------------------->
 
     <div class="main-arrow" style="top: calc(50vh - 100px);">
-        <div class="arrow-prev"><a class="mdi mdi-menu-up" href="{{ route('services') }}">
+        <div class="arrow-prev"><a class="mdi mdi-menu-up" href="{{ route('template1.services') }}">
                 <h5>Services</h5>
             </a></div>
-        <div class="arrow-next"><a class="mdi mdi-menu-down" href="{{ route('blog') }}">
+        <div class="arrow-next"><a class="mdi mdi-menu-down" href="{{ route('template1.blog') }}">
                 <h5>Blog</h5>
             </a></div>
     </div>
@@ -43,7 +43,7 @@
                     <!-- Portfolio Item Starts -->
                     <li>
                         <figure>
-                            <img src="{{ asset('frontend/Images/project-1.jpg') }}" alt="project-1">
+                            <img src="{{ asset('frontend/template1/images/project-1.jpg') }}" alt="project-1">
                             <div><span>Images Project</span></div>
                         </figure>
                     </li>
@@ -51,7 +51,7 @@
                     <!-- Portfolio Item Starts -->
                     <li>
                         <figure>
-                            <img src="{{ asset('frontend/Images/project-2.jpg') }}" alt="project-2">
+                            <img src="{{ asset('frontend/template1/images/project-2.jpg') }}" alt="project-2">
                             <div><span>Images Project</span></div>
                         </figure>
                     </li>
@@ -59,7 +59,7 @@
                     <!-- Portfolio Item Starts -->
                     <li>
                         <figure>
-                            <img src="{{ asset('frontend/Images/project-3.jpg') }}" alt="project-3">
+                            <img src="{{ asset('frontend/template1/images/project-3.jpg') }}" alt="project-3">
                             <div><span>Images Project</span></div>
                         </figure>
                     </li>
@@ -67,7 +67,7 @@
                     <!-- Portfolio Item Starts -->
                     <li>
                         <figure>
-                            <img src="{{ asset('frontend/Images/project-4.jpg') }}" alt="project-4">
+                            <img src="{{ asset('frontend/template1/images/project-4.jpg') }}" alt="project-4">
                             <div><span>Images Project</span></div>
                         </figure>
                     </li>
@@ -75,7 +75,7 @@
                     <!-- Portfolio Item Starts -->
                     <li>
                         <figure>
-                            <img src="{{ asset('frontend/Images/project-5.jpg') }}" alt="project-5">
+                            <img src="{{ asset('frontend/template1/images/project-5.jpg') }}" alt="project-5">
                             <div><span>Images Project</span></div>
                         </figure>
                     </li>
@@ -83,7 +83,7 @@
                     <!-- Portfolio Item Starts -->
                     <li>
                         <figure>
-                            <img src="{{ asset('frontend/Images/project-6.jpg') }}" alt="project-6">
+                            <img src="{{ asset('frontend/template1/images/project-6.jpg') }}" alt="project-6">
                             <div><span>Images Project</span></div>
                         </figure>
                     </li>
@@ -91,7 +91,7 @@
                     <!-- Portfolio Item Starts -->
                     <li>
                         <figure>
-                            <img src="{{ asset('frontend/Images/project-7.jpg') }}" alt="project-7">
+                            <img src="{{ asset('frontend/template1/images/project-7.jpg') }}" alt="project-7">
                             <div><span>Images Project</span></div>
                         </figure>
                     </li>
@@ -99,7 +99,7 @@
                     <!-- Portfolio Item Starts -->
                     <li>
                         <figure>
-                            <img src="{{ asset('frontend/Images/project-8.jpg') }}" alt="project-8">
+                            <img src="{{ asset('frontend/template1/images/project-8.jpg') }}" alt="project-8">
                             <div><span>Images Project</span></div>
                         </figure>
                     </li>
@@ -107,7 +107,7 @@
                     <!-- Portfolio Item Starts -->
                     <li>
                         <figure>
-                            <img src="{{ asset('frontend/Images/project-9.jpg') }}" alt="project-9">
+                            <img src="{{ asset('frontend/template1/images/project-9.jpg') }}" alt="project-9">
                             <div><span>Images Project</span></div>
                         </figure>
                     </li>
@@ -153,7 +153,7 @@
                                     </p>
                                 </div>
                             </figcaption>
-                            <img src="{{ asset('frontend/Images/project-1.jpg') }}" alt="project-1">
+                            <img src="{{ asset('frontend/template1/images/project-1.jpg') }}" alt="project-1">
                         </figure>
                     </li>
                     <!-- end of Portfolio Item Detail -->
@@ -187,7 +187,7 @@
                                     <span class="font-weight-bold"><a href="#">www.templatemonster.com</a></span>
                                 </div>
                             </figcaption>
-                            <img src="{{ asset('frontend/Images/project-2.jpg') }}" alt="project-2">
+                            <img src="{{ asset('frontend/template1/images/project-2.jpg') }}" alt="project-2">
                         </figure>
                     </li>
                     <!-- end of Portfolio Item Detail -->
@@ -217,7 +217,7 @@
                                     <span class="font-weight-bold"><a href="#">www.templatemonster.com</a></span>
                                 </div>
                             </figcaption>
-                            <img src="{{ asset('frontend/Images/project-3.jpg') }}" alt="project-3">
+                            <img src="{{ asset('frontend/template1/images/project-3.jpg') }}" alt="project-3">
                         </figure>
                     </li>
                     <!-- end of Portfolio Item Detail -->
@@ -247,7 +247,7 @@
                                     <span class="font-weight-bold"><a href="#">www.templatemonster.com</a></span>
                                 </div>
                             </figcaption>
-                            <img src="{{ asset('frontend/Images/project-4.jpg') }}" alt="project-4">
+                            <img src="{{ asset('frontend/template1/images/project-4.jpg') }}" alt="project-4">
                         </figure>
                     </li>
                     <!-- end of Portfolio Item Detail -->
@@ -277,7 +277,7 @@
                                     <span class="font-weight-bold"><a href="#">wwwtemplatemonster.com</a></span>
                                 </div>
                             </figcaption>
-                            <img src="{{ asset('frontend/Images/project-5.jpg') }}" alt="project-5">
+                            <img src="{{ asset('frontend/template1/images/project-5.jpg') }}" alt="project-5">
                         </figure>
                     </li>
                     <!-- end of Portfolio Item Detail -->
@@ -307,7 +307,7 @@
                                     <span class="font-weight-bold"><a href="#">www.templatemonster.com</a></span>
                                 </div>
                             </figcaption>
-                            <img src="{{ asset('frontend/Images/project-6.jpg') }}" alt="project-6">
+                            <img src="{{ asset('frontend/template1/images/project-6.jpg') }}" alt="project-6">
                         </figure>
                     </li>
                     <!-- end of Portfolio Item Detail -->
@@ -337,7 +337,7 @@
                                     <span class="font-weight-bold"><a href="#">www.templatemonster.com</a></span>
                                 </div>
                             </figcaption>
-                            <img src="{{ asset('frontend/Images/project-7.jpg') }}" alt="project-7">
+                            <img src="{{ asset('frontend/template1/images/project-7.jpg') }}" alt="project-7">
                         </figure>
                     </li>
                     <!-- end of Portfolio Item Detail -->
@@ -367,7 +367,7 @@
                                     <span class="font-weight-bold"><a href="#">www.templatemonster.com</a></span>
                                 </div>
                             </figcaption>
-                            <img src="{{ asset('frontend/Images/project-8.jpg') }}" alt="project-8">
+                            <img src="{{ asset('frontend/template1/images/project-8.jpg') }}" alt="project-8">
                         </figure>
                     </li>
                     <!-- end of Portfolio Item Detail -->
@@ -397,7 +397,7 @@
                                     <span class="font-weight-bold"><a href="#">www.templatemonster.com</a></span>
                                 </div>
                             </figcaption>
-                            <img src="{{ asset('frontend/Images/project-9.jpg') }}" alt="project-9">
+                            <img src="{{ asset('frontend/template1/images/project-9.jpg') }}" alt="project-9">
                         </figure>
                     </li>
                     <!-- end of Portfolio Item Detail -->

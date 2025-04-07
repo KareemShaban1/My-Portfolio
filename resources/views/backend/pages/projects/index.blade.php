@@ -9,7 +9,7 @@
     {{-- <div class="row"> --}}
     <div class="card">
         <div class="card-header">
-            <h3 class="card-title">Projects</h3>
+            <h3 class="card-title">{{ __('Projects') }}</h3>
         </div>
         <!-- /.card-header -->
         <div class="card-body">
@@ -33,6 +33,8 @@
                                     ->unique()
                                     ->count();
                                 $all_views = views($project)->count();
+                                // $visitor = CyrildeWit\EloquentViewable\Visitor::class;
+                                // dd($visitor->ip);
                             @endphp
 
                             <td>{{ $project->id }}</td>

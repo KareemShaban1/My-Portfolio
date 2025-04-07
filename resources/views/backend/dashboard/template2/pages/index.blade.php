@@ -1,0 +1,1 @@
+@extends('backend.dashboard.template2.layouts.master')

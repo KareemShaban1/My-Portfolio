@@ -5,10 +5,10 @@
     <!---------------------- next & prev btn starts ---------------------->
 
     <div class="main-arrow" style="top: calc(50vh - 100px);">
-        <div class="arrow-prev"><a class="mdi mdi-menu-up" href="{{ route('portfolio') }}">
+        <div class="arrow-prev"><a class="mdi mdi-menu-up" href="{{ route('template1.portfolio') }}">
                 <h5>Portfolio</h5>
             </a></div>
-        <div class="arrow-next"><a class="mdi mdi-menu-down" href="{{ route('contact') }}">
+        <div class="arrow-next"><a class="mdi mdi-menu-down" href="{{ route('template1.contact') }}">
                 <h5>Contact</h5>
             </a></div>
     </div>
@@ -34,7 +34,7 @@
                 <div class="col-md-6 col-lg-4 mt-5">
                     <div class="blog-card card">
                         <div class="blog-card-img">
-                            <a href="Articles/article-1.html"><img src="{{ asset('frontend/Images/blog1.jpg') }}"
+                            <a href="Articles/article-1.html"><img src="{{ asset('frontend/template1/images/blog1.jpg') }}"
                                     class="img-fluid" alt="blog blog1"> </a>
                         </div>
                         <div class="blog-card-text p-3">
@@ -53,7 +53,7 @@
                 <div class="col-md-6 col-lg-4 mt-5">
                     <div class="blog-card card">
                         <div class="blog-card-img">
-                            <a href="Articles/article-2.html"><img src="{{ asset('frontend/Images/blog2.jpg') }}"
+                            <a href="Articles/article-2.html"><img src="{{ asset('frontend/template1/images/blog2.jpg') }}"
                                     class="img-fluid" alt="blog blog2"> </a>
                         </div>
                         <div class="blog-card-text p-3">
@@ -72,7 +72,7 @@
                 <div class="col-md-6 col-lg-4 mt-5">
                     <div class="blog-card card">
                         <div class="blog-card-img">
-                            <a href="Articles/article-3.html"><img src="{{ asset('frontend/Images/blog3.jpg') }}"
+                            <a href="Articles/article-3.html"><img src="{{ asset('frontend/template1/images/blog3.jpg') }}"
                                     class="img-fluid" alt="blog blog3"> </a>
                         </div>
                         <div class="blog-card-text p-3">
@@ -91,7 +91,7 @@
                 <div class="col-md-6 col-lg-4 mt-5">
                     <div class="blog-card card">
                         <div class="blog-card-img">
-                            <a href="Articles/article-4.html"><img src="{{ asset('frontend/Images/blog4.jpg') }}"
+                            <a href="Articles/article-4.html"><img src="{{ asset('frontend/template1/images/blog4.jpg') }}"
                                     class="img-fluid" alt="blog blog4"> </a>
                         </div>
                         <div class="blog-card-text p-3">
@@ -110,7 +110,7 @@
                 <div class="col-md-6 col-lg-4 mt-5">
                     <div class="blog-card card">
                         <div class="blog-card-img">
-                            <a href="Articles/article-5.html"><img src="{{ asset('frontend/Images/blog5.jpg') }}"
+                            <a href="Articles/article-5.html"><img src="{{ asset('frontend/template1/images/blog5.jpg') }}"
                                     class="img-fluid" alt="blog blog5"> </a>
                         </div>
                         <div class="blog-card-text p-3">
@@ -129,7 +129,7 @@
                 <div class="col-md-6 col-lg-4 mt-5">
                     <div class="blog-card card">
                         <div class="blog-card-img">
-                            <a href="Articles/article-6.html"><img src="{{ asset('frontend/Images/blog6.jpg') }}"
+                            <a href="Articles/article-6.html"><img src="{{ asset('frontend/template1/images/blog6.jpg') }}"
                                     class="img-fluid" alt="blog blog6"> </a>
                         </div>
                         <div class="blog-card-text p-3">
@@ -148,7 +148,7 @@
                 <div class="col-md-6 col-lg-4 mt-5">
                     <div class="blog-card card">
                         <div class="blog-card-img">
-                            <a href="Articles/article-7.html"><img src="{{ asset('frontend/Images/blog7.jpg') }}"
+                            <a href="Articles/article-7.html"><img src="{{ asset('frontend/template1/images/blog7.jpg') }}"
                                     class="img-fluid" alt="blog blog7"> </a>
                         </div>
                         <div class="blog-card-text p-3">
@@ -167,7 +167,7 @@
                 <div class="col-md-6 col-lg-4 mt-5">
                     <div class="blog-card card">
                         <div class="blog-card-img">
-                            <a href="Articles/article-8.html"><img src="{{ asset('frontend/Images/blog8.jpg') }}"
+                            <a href="Articles/article-8.html"><img src="{{ asset('frontend/template1/images/blog8.jpg') }}"
                                     class="img-fluid" alt="blog blog8"> </a>
                         </div>
                         <div class="blog-card-text p-3">
@@ -186,7 +186,7 @@
                 <div class="col-md-6 col-lg-4 mt-5">
                     <div class="blog-card card">
                         <div class="blog-card-img">
-                            <a href="Articles/article-9.html"><img src="{{ asset('frontend/Images/blog9.jpg') }}"
+                            <a href="Articles/article-9.html"><img src="{{ asset('frontend/template1/images/blog9.jpg') }}"
                                     class="img-fluid" alt="blog blog9"> </a>
                         </div>
                         <div class="blog-card-text p-3">

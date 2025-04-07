@@ -125,6 +125,11 @@ class InformationSeeder extends Seeder
                 'key' => 'facebook_link',
                 'value' => '',
             ],
+            [
+                'key' => 'template',
+                'value' => '2',
+            ],
+            
         ];
 
         // Insert data into the 'information' table

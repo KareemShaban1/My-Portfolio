@@ -23,6 +23,8 @@ class StoreMetaDataRequest extends FormRequest
     {
         return [
             //
+            'key' => 'required',
+            'value' => 'required',
         ];
     }
 }

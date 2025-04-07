@@ -53,11 +53,22 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="url">URL</label>
-                                    <input type="text" class="form-control" id="url" name="url"
-                                        value="{{ $project->url }}" placeholder="URL">
+                                    <label for="github_link">Github Link</label>
+                                    <input type="text" class="form-control" id="github_link" name="github_link"
+                                        value="{{ $project->github_link }}" placeholder="Github Link">
                                 </div>
                             </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="live_link">Live Link</label>
+                                    <input type="text" class="form-control" id="live_link" name="live_link"
+                                    value="{{ $project->live_link }}" placeholder="Live Link">
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="date">Date</label>

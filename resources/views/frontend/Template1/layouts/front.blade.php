@@ -20,22 +20,22 @@
         rel="stylesheet">
 
     <!-- bootstrap -->
-    <link rel="stylesheet" type="text/css" href="{{ asset('frontend/CSS/bootstrap.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('frontend/template1/css/bootstrap.min.css') }}">
 
     <!-- Material Design icons -->
     <link rel="stylesheet" type="text/css"
-        href="{{ asset('frontend/Fonts/MaterialDesign-Webfont-master/css/materialdesignicons.min.css') }}">
+        href="{{ asset('frontend/template1/MaterialDesign-Webfont-master/css/materialdesignicons.min.css') }}">
 
     <!-- type.css -->
-    <link rel="stylesheet" type="text/css" href="{{ asset('frontend/CSS/type.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('frontend/template1/css/type.css') }}">
 
     <!-- color -->
-    <link rel="stylesheet" type="text/css" href="{{ asset('frontend/CSS/Color/yellow.css') }}" id="switcher">
+    <link rel="stylesheet" type="text/css" href="{{ asset('frontend/template1/css/Color/yellow.css') }}" id="switcher">
 
     <!-- style.css -->
-    <link rel="stylesheet" type="text/css" href="{{ asset('frontend/CSS/style.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('frontend/template1/css/style.css') }}">
 
-    <script src="{{ asset('frontend/JS/modernizr.custom.js') }}"></script>
+    <script src="{{ asset('frontend/template1/js/modernizr.custom.js') }}"></script>
 
 </head>
 
@@ -52,12 +52,12 @@
     <div class="main-navigator">
         <span class="mdi mdi-menu"></span>
         <ul class="navigator-list">
-            <li style="z-index: 1"><a class="mdi mdi-home navigator-active" href="{{ route('home') }}"></a></li>
-            <li><a class="mdi mdi-account" href="{{ route('about') }}"></a></li>
-            <li><a class="mdi mdi-face-agent" href="{{ route('services') }}"></a></li>
-            <li><a class="mdi mdi-briefcase-variant" href="{{ route('portfolio') }}"></a></li>
-            <li><a class="mdi mdi-forum" href="{{ route('blog') }}"></a></li>
-            <li><a class="mdi mdi-account-box" href="{{ route('contact') }}"></a></li>
+            <li style="z-index: 1"><a class="mdi mdi-home navigator-active" href="{{ route('template1.home') }}"></a></li>
+            <li><a class="mdi mdi-account" href="{{ route('template1.about') }}"></a></li>
+            <li><a class="mdi mdi-face-agent" href="{{ route('template1.services') }}"></a></li>
+            <li><a class="mdi mdi-briefcase-variant" href="{{ route('template1.portfolio') }}"></a></li>
+            <li><a class="mdi mdi-forum" href="{{ route('template1.blog') }}"></a></li>
+            <li><a class="mdi mdi-account-box" href="{{ route('template1.contact') }}"></a></li>
         </ul>
     </div>
     <!---------------------- end of navigator ---------------------->
@@ -122,21 +122,21 @@
 
 
     <!-- jquery.js -->
-    <script src="{{ asset('frontend/JS/jquery-3.5.1.js') }}"></script>
+    <script src="{{ asset('frontend/template1/js/jquery-3.5.1.js') }}"></script>
 
     <!-- popper.js -->
-    <script src="{{ asset('frontend/JS/popper.js') }}"></script>
+    <script src="{{ asset('frontend/template1/js/popper.js') }}"></script>
 
     <!-- bootstrap.min.js -->
-    <script src="{{ asset('frontend/JS/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('frontend/template1/js/bootstrap.min.js') }}"></script>
 
     <!-- type.js -->
-    <script src="{{ asset('frontend/JS/type.js') }}"></script>
+    <script src="{{ asset('frontend/template1/js/type.js') }}"></script>
 
     @stack('scripts')
 
     <!-- script.js -->
-    <script src="{{ asset('frontend/JS/script.js') }}"></script>
+    <script src="{{ asset('frontend/template1/js/script.js') }}"></script>
 
 
 

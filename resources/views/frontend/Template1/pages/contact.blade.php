@@ -4,7 +4,7 @@
     <!---------------------- next & prev btn starts ---------------------->
 
     <div class="main-arrow" style="top: calc(50vh - 25px)">
-        <div class="arrow-prev"><a class="mdi mdi-menu-up" href="{{ route('blog') }}">
+        <div class="arrow-prev"><a class="mdi mdi-menu-up" href="{{ route('template1.blog') }}">
                 <h5>Blog</h5>
             </a></div>
 

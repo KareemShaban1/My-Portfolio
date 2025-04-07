@@ -19,7 +19,10 @@ class DashboardController extends Controller
         $testimonials_count = Testimonial::all()->count();
 
 
-        return view('backend.pages.dashboard.index',compact(
-            'projects_count','projects_categories_count','testimonials_count'));
+        // return view('backend.pages.dashboard.index',compact(
+        //     'projects_count','projects_categories_count','testimonials_count'));
+
+        return view('backend.dashboard.template2.pages.index');
+
     }
 }

@@ -26,9 +26,11 @@
 
 
                     <div class="owl-carousel portfolio-details-carousel">
-                        <?php $images = explode('|', $project->images); ?>
-                        @foreach ($images as $key => $value)
-                            <img src="{{ asset('storage/projects/' . $value) }}" class="img-fluid" alt="">
+
+                        @foreach ($project->images as $image)
+
+                            <img src="{{ $image }}" class="img-fluid" alt=""
+                            style="height: 260px; width: 350px;">
                         @endforeach
                     </div>
 
@@ -40,7 +42,15 @@
                                 <li><strong>Client</strong>: {{ $project->client }}</li>
                             @endisset
                             <li><strong>Project date</strong>: {{ $project->date }}</li>
-                            <li><strong>Project URL</strong>: <a href="{{ $project->url }}">{{ $project->url }}</a></li>
+                            @isset($project->github_link)
+                                <li><strong>Github URL</strong>: <a
+                                        href="{{ $project->github_link }}">{{ $project->github_link }}</a></li>
+                            @endisset
+
+                            @isset($project->live_link)
+                                <li><strong>Live URL</strong>: <a href="{{ $project->live_link }}">{{ $project->live_link }}</a>
+                                </li>
+                            @endisset
                         </ul>
                     </div>
 

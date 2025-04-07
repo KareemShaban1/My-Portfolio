@@ -5,10 +5,10 @@
     <!---------------------- next & prev btn starts ---------------------->
 
     <div class="main-arrow" style="top: calc(50vh - 100px);">
-        <div class="arrow-prev"><a class="mdi mdi-menu-up" href="{{ route('about') }}">
+        <div class="arrow-prev"><a class="mdi mdi-menu-up" href="{{ route('template1.about') }}">
                 <h5>About</h5>
             </a></div>
-        <div class="arrow-next"><a class="mdi mdi-menu-down" href="{{ route('portfolio') }}">
+        <div class="arrow-next"><a class="mdi mdi-menu-down" href="{{ route('template1.portfolio') }}">
                 <h5>Portfolio</h5>
             </a></div>
     </div>

@@ -298,6 +298,51 @@
         });
     </script>
 
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const display = document.getElementById('content-display');
+        const editor = document.getElementById('editor');
+
+        // On click: hide <p> and show editor
+        display.addEventListener('click', function () {
+            display.style.display = 'none';
+            editor.style.display = 'block';
+            editor.focus();
+        });
+
+        // On input: send updated content to backend
+        let timeout = null;
+
+        editor.addEventListener('input', function () {
+            // Optional: Debounce the request (only send after user stops typing for 500ms)
+            clearTimeout(timeout);
+            timeout = setTimeout(() => {
+                const content = editor.innerHTML;
+
+                fetch("{{ route('template1.home') }}", {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                    },
+                    body: JSON.stringify({
+                        content: content
+                    })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    console.log('Content updated!');
+                })
+                .catch(error => {
+                    console.error('Update failed:', error);
+                });
+            }, 500);
+        });
+    });
+</script>
+
+
+
 </body>
 
 </html>

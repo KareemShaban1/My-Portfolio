@@ -6,10 +6,10 @@
     <!---------------------- next & prev btn starts ---------------------->
 
     <div class="main-arrow" style="top: calc(50vh - 100px);">
-        <div class="arrow-prev"><a class="mdi mdi-menu-up" href="{{ route('home') }}">
+        <div class="arrow-prev"><a class="mdi mdi-menu-up" href="{{ route('template1.home') }}">
                 <h5>Home</h5>
             </a></div>
-        <div class="arrow-next"><a class="mdi mdi-menu-down" href="{{ route('services') }}">
+        <div class="arrow-next"><a class="mdi mdi-menu-down" href="{{ route('template1.services') }}">
                 <h5>Services</h5>
             </a></div>
     </div>

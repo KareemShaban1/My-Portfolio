@@ -20,6 +20,11 @@ class Information extends Model
      *
      * @var array
      */
-    protected $fillable = ['key','value'];
+    protected $fillable = ['key','value','type'];
+
+    public function pageInformation()
+    {
+        return $this->hasMany(PageInformation::class);
+    }
     
 }

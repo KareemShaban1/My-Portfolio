@@ -2,14 +2,18 @@
 
 use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Backend\InformationController;
+use App\Http\Controllers\Backend\MediaController;
 use App\Http\Controllers\Backend\MetaDataController;
+use App\Http\Controllers\Backend\PageController;
 use App\Http\Controllers\Backend\PDFController;
+use App\Http\Controllers\Backend\PersonalExperienceController;
 use App\Http\Controllers\Backend\PortfolioImageController;
 use App\Http\Controllers\Backend\ProjectsCategoryController;
 use App\Http\Controllers\Backend\ProjectsController;
+use App\Http\Controllers\Backend\TemplateController;
 use App\Http\Controllers\Backend\TestimonialsController;
+use App\Http\Controllers\Frontend\FrontTemplateController;
 use App\Http\Controllers\Frontend\MailController;
-use App\Http\Controllers\Frontend\Template2Controller;
 use App\Models\Information;
 use App\Models\MetaData;
 use Illuminate\Support\Facades\Route;
@@ -26,8 +30,8 @@ use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 |
 */
 
-Route::get('/', [Template2Controller::class,'index'])->name('template2.home');
-Route::get('/project_details/{id}', [Template2Controller::class,'projectDetails'])->name('template2.projectDetails');
+Route::get('/', [FrontTemplateController::class,'index'])->name('template2.home');
+Route::get('/project_details/{id}', [FrontTemplateController::class,'projectDetails'])->name('template2.projectDetails');
 
 
 Route::get('/mail-success', function(){
@@ -80,32 +84,55 @@ Route::group([
         Route::get('/information',[InformationController::class,'index'])->name('information');
         Route::get('/add_information',[InformationController::class,'add'])->name('information.add');
         Route::post('/store_information',[InformationController::class,'store'])->name('information.store');
-        Route::get('/edit_information/{id}',[InformationController::class,'edit'])->name('information.edit');
+        Route::get('/information/{id}/edit',[InformationController::class,'edit'])->name('information.edit');
         Route::put('/update_information/{id}',[InformationController::class,'update'])->name('information.update');
+        Route::delete('/information/{id}',[InformationController::class,'destroy'])->name('information.delete');
+    });
+
+    Route::group([],function (): void {
+        Route::get('/templates',[TemplateController::class,'index'])->name('templates');
+        Route::post('/templates',[TemplateController::class,'store'])->name('templates.store');
+        Route::get('/templates/{id}/edit',[TemplateController::class,'edit'])->name('templates.edit');
+        Route::put('/templates/{id}',[TemplateController::class,'update'])->name('templates.update');
+        Route::delete('/templates/{id}',[TemplateController::class,'destroy'])->name('templates.delete');
+    });
+
+    Route::group([],function () {
+        Route::get('/pages',[PageController::class,'index'])->name('pages');
+        Route::get('/pages/create',[PageController::class,'create'])->name('pages.create');
+        Route::post('/store_page',[PageController::class,'store'])->name('pages.store');
+        Route::get('/pages/{id}/edit',[PageController::class,'edit'])->name('pages.edit');
+        Route::put('/update_page/{id}',[PageController::class,'update'])->name('pages.update');
+        Route::delete('/pages/{id}',[PageController::class,'destroy'])->name('pages.delete');
     });
 
     Route::group([],function () {
         Route::get('/categories',[ProjectsCategoryController::class,'index'])->name('categories');
         Route::get('/add_category',[ProjectsCategoryController::class,'add'])->name('categories.add');
         Route::post('/store_category',[ProjectsCategoryController::class,'store'])->name('categories.store');
-        Route::get('/edit_category/{id}',[ProjectsCategoryController::class,'edit'])->name('categories.edit');
+        Route::get('/categories/{id}/edit',[ProjectsCategoryController::class,'edit'])->name('categories.edit');
         Route::put('/update_category/{id}',[ProjectsCategoryController::class,'update'])->name('categories.update');
+        Route::delete('/categories/{id}',[ProjectsCategoryController::class,'destroy'])->name('categories.delete');
     });
 
     Route::group([],function () {
         Route::get('/projects',[ProjectsController::class,'index'])->name('projects');
         Route::get('/add_project',[ProjectsController::class,'add'])->name('projects.add');
         Route::post('/store_project',[ProjectsController::class,'store'])->name('projects.store');
-        Route::get('/edit_project/{id}',[ProjectsController::class,'edit'])->name('projects.edit');
+        Route::get('/projects/{id}/edit',[ProjectsController::class,'edit'])->name('projects.edit');
         Route::put('/update_project/{id}',[ProjectsController::class,'update'])->name('projects.update');
+        Route::delete('/projects/{id}',[ProjectsController::class,'destroy'])->name('projects.delete');
+
     });
 
     Route::group([],function () {
         Route::get('/testimonials',[TestimonialsController::class,'index'])->name('testimonials');
         Route::get('/add_testimonial',[TestimonialsController::class,'add'])->name('testimonials.add');
         Route::post('/store_testimonial',[TestimonialsController::class,'store'])->name('testimonials.store');
-        Route::get('/edit_testimonial/{id}',[TestimonialsController::class,'edit'])->name('testimonials.edit');
+        Route::get('/testimonials/{id}/edit',[TestimonialsController::class,'edit'])->name('testimonials.edit');
         Route::put('/update_testimonial/{id}',[TestimonialsController::class,'update'])->name('testimonials.update');
+        Route::delete('/testimonials/{id}',[TestimonialsController::class,'destroy'])->name('testimonial.delete');
+
     });
 
 
@@ -113,16 +140,29 @@ Route::group([
         Route::get('/metaData',[MetaDataController::class,'index'])->name('metaData');
         Route::get('/add_metaData',[MetaDataController::class,'add'])->name('metaData.add');
         Route::post('/store_metaData',[MetaDataController::class,'store'])->name('metaData.store');
-        Route::get('/edit_metaData/{id}',[MetaDataController::class,'edit'])->name('metaData.edit');
+        Route::get('/metaData/{id}/edit',[MetaDataController::class,'edit'])->name('metaData.edit');
         Route::put('/update_metaData/{id}',[MetaDataController::class,'update'])->name('metaData.update');
+        Route::delete('/metaData/{id}',[MetaDataController::class,'destroy'])->name('metaData.delete');
+
     });
 
     Route::group([],function () {
-        Route::get('/portfolioImages',[PortfolioImageController::class,'index'])->name('portfolioImages');
-        Route::get('/add_portfolioImage',[PortfolioImageController::class,'add'])->name('portfolioImages.add');
-        Route::post('/store_portfolioImage',[PortfolioImageController::class,'store'])->name('portfolioImages.store');
-        Route::get('/edit_portfolioImage/{id}',[PortfolioImageController::class,'edit'])->name('portfolioImages.edit');
-        Route::put('/update_portfolioImage/{id}',[PortfolioImageController::class,'update'])->name('portfolioImages.update');
+        Route::get('/media',[MediaController::class,'index'])->name('media');
+        Route::get('/media/create',[MediaController::class,'add'])->name('media.add');
+        Route::post('/media',[MediaController::class,'store'])->name('media.store');
+        Route::get('media/{id}/edit',[MediaController::class,'edit'])->name('media.edit');
+        Route::post('/media/{id}',[MediaController::class,'update'])->name('media.update');
+        Route::delete('/media/{id}',[MediaController::class,'destroy'])->name('media.delete');
+    });
+
+    Route::group([],function () {
+        Route::get('/personalExperience',[PersonalExperienceController::class,'index'])->name('personalExperience');
+        Route::get('/add_personalExperience',[PersonalExperienceController::class,'add'])->name('personalExperience.add');
+        Route::post('/store_personalExperience',[PersonalExperienceController::class,'store'])->name('personalExperience.store');
+        Route::get('/personalExperience/{id}/edit',[PersonalExperienceController::class,'edit'])->name('personalExperience.edit');
+        Route::put('/update_personalExperience/{id}',[PersonalExperienceController::class,'update'])->name('personalExperience.update');
+        Route::delete('/personalExperience/{id}',[PersonalExperienceController::class,'destroy'])->name('personalExperience.delete');
+
     });
 
     Route::get('/pdfs', [PDFController::class,'index'])->name('PDFs');
