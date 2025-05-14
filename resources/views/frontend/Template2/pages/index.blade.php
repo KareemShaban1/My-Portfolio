@@ -38,9 +38,9 @@
                     {!! $aboutPage->content ?? '' !!}
                 </p>
 
-                <div id="editor" contenteditable="true" style="border:1px solid #ccc; padding:10px; display:none;">
+                <!-- <div id="editor" contenteditable="true" style="border:1px solid #ccc; padding:10px; display:none;">
                     {!! $aboutPage->content ?? '' !!}
-                </div>
+                </div> -->
 
 
             </div>

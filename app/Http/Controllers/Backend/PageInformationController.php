@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Backend\StoreInformationRequest;
 use App\Http\Requests\Backend\UpdateInformationRequest;
 use App\Models\Information;
+use App\Models\Page;
 use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
 
@@ -15,16 +16,26 @@ class PageInformationController extends Controller
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            $information = Information::where('type', 'page');
-            return DataTables::of($information)
+            $information = Information::with('entity') // eager load related model
+            ->where('type', 'page');
+
+        return DataTables::of($information)
+            ->addColumn('page', function ($row) {
+                // Check if the related entity is a Page
+                if ($row->entity_type === Page::class && $row->entity) {
+                    return $row->entity->name ?? '—';
+                }
+                return '—';
+            })
                 ->addColumn('actions', function ($row) {
-                    return '<button class="btn btn-sm btn-primary edit" data-id="'.$row->id.'">'.__('Edit').'</button>
-                            <button class="btn btn-sm btn-danger delete" data-id="'.$row->id.'">'.__('Delete').'</button>';
+                    return '<button class="btn btn-sm btn-primary edit" data-id="' . $row->id . '">' . __('Edit') . '</button>
+                            <button class="btn btn-sm btn-danger delete" data-id="' . $row->id . '">' . __('Delete') . '</button>';
                 })
                 ->rawColumns(['actions'])
                 ->make(true);
         }
-        return view('backend.dashboard.template2.pages.pageInformation.index');
+        $pages = Page::all();
+        return view('backend.dashboard.template2.pages.pageInformation.index', compact('pages'));
     }
 
     public function store(StoreInformationRequest $request)

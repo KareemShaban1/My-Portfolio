@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Models\Page;
+use Illuminate\Database\Eloquent\Relations\Relation;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -20,5 +22,8 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         //
+        Relation::morphMap([
+            'page' => Page::class,
+        ]);
     }
 }

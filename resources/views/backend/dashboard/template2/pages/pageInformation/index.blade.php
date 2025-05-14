@@ -14,6 +14,7 @@
                             <tr>
                                 <th>{{__('ID')}}</th>
                                 <th>{{__('Key')}}</th>
+                                <th>{{__('Page')}}</th>
                                 <!-- <th>{{__('Value')}}</th> -->
                                 <th>{{__('Actions')}}</th>
                             </tr>
@@ -43,6 +44,10 @@
                 {
                     data: 'key',
                     name: 'key'
+                },
+                {
+                    data: 'page',
+                    name: 'page'
                 },
                 // {
                 //     data: 'value',
