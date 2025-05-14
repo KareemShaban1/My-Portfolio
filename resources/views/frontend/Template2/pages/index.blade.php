@@ -34,7 +34,7 @@
 
             <div class="section-title">
                 <h2>About</h2>
-                <p id="content-display" style="cursor:pointer;">
+                <p>
                     {!! $aboutPage->content ?? '' !!}
                 </p>
 
