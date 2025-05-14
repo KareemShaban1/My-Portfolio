@@ -19,17 +19,17 @@ class TemplateSeeder extends Seeder
             'description' => 'Template 1 Description',
         ]);
         
-        $template1->addMedia(public_path('images\template1_image.png'))
-            ->preservingOriginal()
-            ->toMediaCollection('template_image');
+        // $template1->addMedia(public_path('images\template1_image.png'))
+        //     ->preservingOriginal()
+        //     ->toMediaCollection('template_image');
 
-        $template1->addMedia(public_path('images\template1_gallery_1.png'))
-            ->preservingOriginal()
-            ->toMediaCollection('template_gallery');
+        // $template1->addMedia(public_path('images\template1_gallery_1.png'))
+        //     ->preservingOriginal()
+        //     ->toMediaCollection('template_gallery');
         
-            $template1->addMedia(public_path('images\template1_gallery_2.png'))
-            ->preservingOriginal()
-            ->toMediaCollection('template_gallery');    
+        //     $template1->addMedia(public_path('images\template1_gallery_2.png'))
+        //     ->preservingOriginal()
+        //     ->toMediaCollection('template_gallery');    
 
        $template2 = Template::create([
         'name' => 'Template 2',
