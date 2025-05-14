@@ -35,11 +35,12 @@ class TestimonialsController extends Controller
     {
         $testimonial = new Testimonial;
         $data = $request->except('client_image');
-        $client_image_path = $this->handleOneImageUpload($request, $testimonial, 'client_image', 'testimonials');
-
-
-        $data['main_image'] =  $client_image_path;
         $testimonial->create($data);
+
+        if ($request->hasFile('client_image')) {
+            $testimonial->addMedia($request->file('client_image'))
+                ->toMediaCollection('client_image', 'media');
+        }
         return response()->json(['success' => 'Testimonial added successfully']);
     }
 
@@ -53,12 +54,13 @@ class TestimonialsController extends Controller
     {
         $testimonial = Testimonial::findOrFail($id);
         $data = $request->except('client_image');
-
-        if ($request->client_image != null) {
-            $main_image_path = $this->handleOneImageUpload($request, $testimonial, 'client_image', 'testimonials');
-            $data['client_image'] =  $main_image_path ? $main_image_path : $testimonial->client_image;
-        }
         $testimonial->update($data);
+
+        if ($request->hasFile('client_image')) {
+            $testimonial->clearMediaCollection('client_image'); // Remove the old main image
+            $testimonial->addMedia($request->file('client_image'))
+                    ->toMediaCollection('client_image', 'media');
+        }
         return response()->json(['success' => 'Testimonial updated successfully']);
     }
 

@@ -14,7 +14,7 @@
                             <tr>
                                 <th>{{__('ID')}}</th>
                                 <th>{{__('Key')}}</th>
-                                <!-- <th>{{__('Value')}}</th> -->
+                                <th>{{__('Value')}}</th>
                                 <th>{{__('Actions')}}</th>
                             </tr>
                         </thead>
@@ -44,10 +44,10 @@
                     data: 'key',
                     name: 'key'
                 },
-                // {
-                //     data: 'value',
-                //     name: 'value'
-                // },
+                {
+                    data: 'value',
+                    name: 'value'
+                },
                 {
                     data: 'actions',
                     name: 'actions',

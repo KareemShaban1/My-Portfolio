@@ -14,6 +14,14 @@
                         <label for="name" class="form-label">{{ __('Name') }}</label>
                         <input type="text" class="form-control" id="name" name="name" required>
                     </div>
+
+                    <div class="form-group mb-3">
+                        <label for="type" class="form-label">{{ __('Type') }}</label>
+                        <select name="type" id="type" class="form-control">
+                            <option value="education">{{ __('Education') }}</option>
+                            <option value="work">{{ __('Work') }}</option>
+                        </select>
+                    </div>
                     
                     <div class="form-group mb-3">
                         <label for="job_title" class="form-label">{{ __('Job Title') }}</label>

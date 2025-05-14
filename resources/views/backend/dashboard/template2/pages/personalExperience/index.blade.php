@@ -108,7 +108,7 @@
                 data: formData,
                 success: function(response) {
                     $('#personalExperienceModal').modal('hide');
-                    form[0].reset();
+                    $('#personalExperienceForm')[0].reset();
                     table.ajax.reload();
                     Swal.fire({
                         icon: 'success',
@@ -128,6 +128,7 @@
             $.get("{{ route('personalExperience') }}/" + id + "/edit", function(data) {
                 $('#personalExperience_id').val(data.id);
                 $('#name').val(data.name);
+                $('#type').val(data.type);
                 $('#job_title').val(data.job_title);
                 $('#start_date').val(data.start_date);
                 $('#end_date').val(data.end_date);

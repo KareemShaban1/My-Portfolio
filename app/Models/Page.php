@@ -14,6 +14,7 @@ class Page extends Model implements HasMedia
     use InteractsWithMedia;
 
     protected $fillable = [
+        'id',
         'name',
         'content',
         'slug',
@@ -29,8 +30,8 @@ class Page extends Model implements HasMedia
         return $this->belongsTo(Template::class);
     }
 
-    public function pageInformation()
+    public function information()
     {
-        return $this->hasMany(PageInformation::class)->with('information');
+        return $this->morphMany(Information::class, 'entity');
     }
 }

@@ -65,10 +65,10 @@
                     <div class="row">
                         <div class="col-lg-6">
                             <ul>
-                                @if ($aboutPage->pageInformation)
-                                @foreach ($aboutPage->pageInformation as $info)
-                                <li><i class="icofont-rounded-right"></i> <strong>{{ $info->information->key }}:</strong>
-                                    {{ $info->information->value }}
+                                @if ($aboutPage->information)
+                                @foreach ($aboutPage->information as $info)
+                                <li><i class="icofont-rounded-right"></i> <strong>{{ $info->key }}:</strong>
+                                    {{ $info->value }}
                                 </li>
                                 @endforeach
                                 @endif
@@ -98,18 +98,21 @@
 
             <div class="row no-gutters">
 
-                @foreach ($factsPage->pageInformation as $info )
+                @if($factsPage->information)
+                @foreach ($factsPage->information as $info )
 
                 <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch" data-aos="fade-up">
                     <div class="count-box">
-                        <i class="{{ $info->information->icon }}"></i>
-                        <span data-toggle="counter-up">{{ $info->information->value }}</span>
-                        <p><strong>{{ $info->information->key }}</strong>
+                        <i class="{{ $info->icon }}"></i>
+                        <span data-toggle="counter-up">{{ $info->value }}</span>
+                        <p><strong>{{ $info->key }}</strong>
                         </p>
                     </div>
                 </div>
 
                 @endforeach
+
+                @endif
 
 
 
@@ -133,17 +136,20 @@
 
                 <div class="col-lg-6" data-aos="fade-up">
 
-                    @foreach ($skillsPage->pageInformation as $info )
+                @if ($skillsPage->information)
+                @foreach ($skillsPage->information as $info )
                     <div class="progress">
-                        <span class="skill">{{ $info->information->key }} <i class="val">{{ $info->information->value }}%</i></span>
+                        <span class="skill">{{ $info->key }} <i class="val">{{ $info->value }}%</i></span>
                         <div class="progress-bar-wrap">
                             <div class="progress-bar" role="progressbar"
-                                aria-valuenow="{{ $info->information->value }}" aria-valuemin="0" aria-valuemax="100">
+                                aria-valuenow="{{ $info->value }}" aria-valuemin="0" aria-valuemax="100">
                             </div>
                         </div>
                     </div>
 
                     @endforeach
+                @endif
+                  
 
                 </div>
 
@@ -244,15 +250,17 @@
 
             <div class="row">
 
-                @foreach ($servicesPage->pageInformation as $service )
+            @if($servicesPage->information)
+                @foreach ($servicesPage->information as $service )
 
                 <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="400">
                     <div class="icon"><i class="icofont-dashboard-web"></i></div>
-                    <h4 class="title"><a href="#">{{ $service->information->key }}</a></h4>
-                    <p class="description">{{ $service->information->value }}</p>
+                    <h4 class="title"><a href="#">{{ $service->key }}</a></h4>
+                    <p class="description">{{ $service->value }}</p>
                 </div>
 
                 @endforeach
+                @endif
 
             </div>
         </div>

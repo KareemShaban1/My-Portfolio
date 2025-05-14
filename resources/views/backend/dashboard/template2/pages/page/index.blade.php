@@ -155,17 +155,17 @@
                 $('#meta_title').val(data.meta_title);
                 $('#meta_description').val(data.meta_description);
                 $('#meta_keywords').val(data.meta_keywords);
-                $('#template_id').val(data.template_id);
+                $('#template_id').val(data.template_id).trigger('change');
 
                 $('#infoRowsContainer').html('');
-                data.page_information.forEach(function(info) {
+                data.information.forEach(function(info) {
                     $('#infoRowsContainer').append(`
                         <div class="row info-row mb-2">
                             <div class="col-md-5">
-                                <input type="text" class="form-control" name="info_keys[]" value="${info.information.key}">
+                                <input type="text" class="form-control" name="info_keys[]" value="${info.key}">
                             </div>
                             <div class="col-md-5">
-                                <input type="text" class="form-control" name="info_values[]" value="${info.information.value}">
+                                <input type="text" class="form-control" name="info_values[]" value="${info.value}">
                             </div>
                             <div class="col-md-2">
                                 <button type="button" class="btn btn-danger remove-row">

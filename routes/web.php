@@ -5,17 +5,17 @@ use App\Http\Controllers\Backend\InformationController;
 use App\Http\Controllers\Backend\MediaController;
 use App\Http\Controllers\Backend\MetaDataController;
 use App\Http\Controllers\Backend\PageController;
+use App\Http\Controllers\Backend\PageInformationController;
 use App\Http\Controllers\Backend\PDFController;
 use App\Http\Controllers\Backend\PersonalExperienceController;
 use App\Http\Controllers\Backend\PortfolioImageController;
 use App\Http\Controllers\Backend\ProjectsCategoryController;
 use App\Http\Controllers\Backend\ProjectsController;
 use App\Http\Controllers\Backend\TemplateController;
+use App\Http\Controllers\Backend\TemplateInformationController;
 use App\Http\Controllers\Backend\TestimonialsController;
 use App\Http\Controllers\Frontend\FrontTemplateController;
 use App\Http\Controllers\Frontend\MailController;
-use App\Models\Information;
-use App\Models\MetaData;
 use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
@@ -30,7 +30,11 @@ use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 |
 */
 
-Route::get('/', [FrontTemplateController::class,'index'])->name('template2.home');
+Route::get('/', [FrontTemplateController::class,'index'])->name('template.home');
+Route::get('/template1', [FrontTemplateController::class,'template1'])->name('template1.home');
+Route::get('/template2', [FrontTemplateController::class,'template2'])->name('template2.home');
+Route::get('/template3', [FrontTemplateController::class,'template3'])->name('template3.home');
+
 Route::get('/project_details/{id}', [FrontTemplateController::class,'projectDetails'])->name('template2.projectDetails');
 
 
@@ -87,6 +91,22 @@ Route::group([
         Route::get('/information/{id}/edit',[InformationController::class,'edit'])->name('information.edit');
         Route::put('/update_information/{id}',[InformationController::class,'update'])->name('information.update');
         Route::delete('/information/{id}',[InformationController::class,'destroy'])->name('information.delete');
+    });
+
+    Route::group([],function () {
+        Route::get('/template_information',[TemplateInformationController::class,'index'])->name('templateInformation');
+        Route::post('/store_template_information',[TemplateInformationController::class,'store'])->name('templateInformation.store');
+        Route::get('/template_information/{id}/edit',[TemplateInformationController::class,'edit'])->name('templateInformation.edit');
+        Route::put('/update_template_information/{id}',[TemplateInformationController::class,'update'])->name('templateInformation.update');
+        Route::delete('/template_information/{id}',[TemplateInformationController::class,'destroy'])->name('templateInformation.delete');
+    });
+
+    Route::group([],function () {
+        Route::get('/page_information',[PageInformationController::class,'index'])->name('pageInformation');
+        Route::post('/store_page_information',[PageInformationController::class,'store'])->name('pageInformation.store');
+        Route::get('/page_information/{id}/edit',[PageInformationController::class,'edit'])->name('pageInformation.edit');
+        Route::put('/update_page_information/{id}',[PageInformationController::class,'update'])->name('pageInformation.update');
+        Route::delete('/page_information/{id}',[PageInformationController::class,'destroy'])->name('pageInformation.delete');
     });
 
     Route::group([],function (): void {
@@ -165,9 +185,13 @@ Route::group([
 
     });
 
-    Route::get('/pdfs', [PDFController::class,'index'])->name('PDFs');
-    Route::get('/add_pdf', [PDFController::class,'add'])->name('PDFs.add');
-    Route::post('/upload-pdf', [PDFController::class,'store'])->name('PDFs.store');
+    Route::get('/pdfs', [PDFController::class,'index'])->name('pdfs');
+    Route::get('/pdfs/data', [PDFController::class,'data'])->name('pdfs.data');
+    Route::get('/add_pdf', [PDFController::class,'add'])->name('pdfs.add');
+    Route::post('/upload-pdf', [PDFController::class,'store'])->name('pdfs.store');
+    Route::get('/pdfs/{id}/edit', [PDFController::class,'edit'])->name('pdfs.edit');
+    Route::put('/pdfs/{id}', [PDFController::class,'update'])->name('pdfs.update');
+    Route::delete('/pdfs/{id}', [PDFController::class,'destroy'])->name('pdfs.delete');
 
     Route::get('logs', [\Rap2hpoutre\LaravelLogViewer\LogViewerController::class, 'index']);
 

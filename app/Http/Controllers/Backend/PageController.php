@@ -44,6 +44,7 @@ class PageController extends Controller
     {
         $data = $request->except(['images', 'main_image']);
         $data['slug'] = str()->slug($request->name);
+        $data['content'] = "test";
         $page = Page::create($data);
 
         // Store main image
@@ -67,11 +68,8 @@ class PageController extends Controller
                     'key' => $key,
                     'value' => $request->info_values[$index],
                     'type' => 'page',
-                ]);
-
-                $page->pageInformation()->create([
-                    'information_id' => $information->id,
-                    'page_id' => $page->id
+                    'entity_id' => $page->id,
+                    'entity_type' => Page::class,
                 ]);
             }
         }
@@ -83,7 +81,7 @@ class PageController extends Controller
     public function edit($id)
     {
         $page = Page::findOrFail($id);
-        $page->load('pageInformation', 'media');
+        $page->load('information', 'media');
         return response()->json($page);
     }
 
@@ -91,59 +89,43 @@ class PageController extends Controller
     {
         $page = Page::findOrFail($id);
         $data = $request->except(['images', 'main_image']);
+        $data['slug'] = str()->slug($request->name);
+        $page->update($data);
 
-        // Update main image (replace old one)
+        // Update main image if provided
         if ($request->hasFile('main_image')) {
-            $page->clearMediaCollection('page_image'); // Remove the old main image
+            $page->clearMediaCollection('page_image');
             $page->addMedia($request->file('main_image'))
                 ->toMediaCollection('page_image', 'media');
         }
 
-        // Update gallery images (remove old ones and add new ones)
+        // Add new gallery images if provided
         if ($request->hasFile('images')) {
-            $page->clearMediaCollection('page_gallery'); // Remove old gallery images
             foreach ($request->file('images') as $image) {
                 $page->addMedia($image)->toMediaCollection('page_gallery', 'media');
             }
         }
 
-        $page->update($data);
+        // Delete existing info entries of type 'page' for this page
+        $page->information()->where('type', 'page')->delete();
 
-       // Update existing information
-    foreach ($request->info_keys as $index => $key) {
-        if (!empty($key) && isset($request->info_values[$index])) {
-            $value = $request->info_values[$index];
 
-            // Check if the information already exists for this page
-            $existingInformation = $page->pageInformation()
-                ->whereHas('information', function ($q) use ($key) {
-                    $q->where('key', $key);
-                })
-                ->first();
-
-            if ($existingInformation) {
-                // Update the existing Information model
-                $existingInformation->information->update([
-                    'value' => $value,
-                ]);
-            } else {
-                // Create new Information
-                $information = Information::create([
+        // Re-create page information
+        foreach ($request->info_keys as $index => $key) {
+            if (!empty($key) && isset($request->info_values[$index])) {
+                Information::create([
                     'key' => $key,
-                    'value' => $value,
+                    'value' => $request->info_values[$index],
                     'type' => 'page',
-                ]);
-
-                $page->pageInformation()->create([
-                    'information_id' => $information->id,
-                    'page_id' => $page->id
+                    'entity_id' => $page->id,
+                    'entity_type' => Page::class,
                 ]);
             }
         }
-    }
 
         return response()->json(['success' => 'Page updated successfully']);
     }
+
 
     public function destroy($id)
     {

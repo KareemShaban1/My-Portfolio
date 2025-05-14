@@ -16,8 +16,14 @@ return new class extends Migration
             $table->string('key');
             $table->longText('value')->nullable();
             $table->string('icon')->nullable();
-            $table->enum('type',['general','page','template']);
+            $table->enum('type', ['general', 'page', 'template']);
+            // Polymorphic fields (nullable)
+            $table->unsignedBigInteger('entity_id')->nullable();
+            $table->string('entity_type')->nullable();
             $table->timestamps();
+
+            // Optional index for faster morph lookup
+            $table->index(['entity_id', 'entity_type']);
         });
     }
 

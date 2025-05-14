@@ -17,6 +17,10 @@ class InformationController extends Controller
         if ($request->ajax()) {
             $information = Information::where('type', 'general');
             return DataTables::of($information)
+            ->addColumn('value', function ($row) {
+                return \Str::words(strip_tags($row->value), 5, '...');
+            })
+            
                 ->addColumn('actions', function ($row) {
                     return '<button class="btn btn-sm btn-primary edit" data-id="'.$row->id.'">'.__('Edit').'</button>
                             <button class="btn btn-sm btn-danger delete" data-id="'.$row->id.'">'.__('Delete').'</button>';

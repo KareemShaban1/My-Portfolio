@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('personal_experiences', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('type')->nullable();
             $table->string('job_title');
             $table->string('location');
             $table->date('start_date');

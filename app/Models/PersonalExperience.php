@@ -11,6 +11,7 @@ class PersonalExperience extends Model
 
     protected $fillable = [
         'name',
+        'type',
         'job_title',
         'start_date',
         'end_date',

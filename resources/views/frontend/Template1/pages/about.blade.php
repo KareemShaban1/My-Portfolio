@@ -59,18 +59,33 @@
                 </div>
                 <div class="col-lg-6 pt-5 mt-4">
                     <div class="about-details">
+                    
+                    @php
+                        $aboutPage = App\Models\Page::
+                        where('template_id', 1)
+                        ->where('slug', 'about')->first();
+
+
+                    @endphp
+
                         <ul>
-                            <li><span>Age :</span><span> 24</span></li>
+                            @if ($aboutPage->information)
+                            @foreach ($aboutPage->information as $info)
+                           
+                            <li><span>{{ $info->key }} :</span><span>{{ $info->value }}</span></li>
+                            @endforeach
+                            @endif
+                            <!-- <li><span>Age :</span><span> 24</span></li>
                             <li><span>Nationality :</span><span>Egyption</span></li>
                             <li><span>Frelance :</span><span> Available</span></li>
-                            <li><span>Address :</span><span> Egypt , Benha</span></li>
+                            <li><span>Address :</span><span> Egypt , Benha</span></li> -->
                         </ul>
-                        <ul>
+                        <!-- <ul>
                             <li><span>Phone :</span><span> 01090537394 </span></li>
                             <li><span>Gmail :</span><span>kareemshaban@gmail.com</span></li>
                             <li><span>Linked In :</span><span> @kreative</span></li>
                             <li><span>Language :</span><span> Arabic,English</span></li>
-                        </ul>
+                        </ul> -->
                     </div>
                 </div>
             </div>

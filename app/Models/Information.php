@@ -20,11 +20,12 @@ class Information extends Model
      *
      * @var array
      */
-    protected $fillable = ['key','value','type'];
+    protected $fillable = ['key', 'value', 'type', 'entity_id', 'entity_type'];
 
-    public function pageInformation()
-    {
-        return $this->hasMany(PageInformation::class);
-    }
-    
+
+// Correct morphTo relationship
+public function entity()
+{
+    return $this->morphTo();
+}
 }

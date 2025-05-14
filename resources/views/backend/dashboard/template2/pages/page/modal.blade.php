@@ -14,7 +14,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label class="form-label">{{ __('Template') }}</label>
-                                <select name="template_id" class="form-control select2" style="width: 100%;">
+                                <select name="template_id" id="template_id" class="form-control select2" style="width: 100%;">
                                     @foreach (App\Models\Template::all() as $template)
                                     <option value="{{ $template->id }}">
                                         {{ $template->name }}

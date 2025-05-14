@@ -34,12 +34,10 @@ class PageSeeder extends Seeder
             'key' => 'website',
             'value' => 'https://example.com',
             'type' => 'page',
+            'entity_id' => $template2_page1->id,
+            'entity_type' => Page::class,
         ]);
 
-        $template2_page2->pageInformation()->create([
-            'information_id' => $template2_page1_information1->id,
-            'page_id' => $template2_page2->id
-        ]);
 
         $template2_page3 = Page::create([
             'name' => 'Facts',
@@ -53,6 +51,8 @@ class PageSeeder extends Seeder
             'value' => '10',
             'icon' => 'icofont-simple-smile',
             'type' => 'page',
+            'entity_id' => $template2_page3->id,
+            'entity_type' => Page::class,
         ]);
 
         $template2_page3_information2 = Information::create([
@@ -60,6 +60,8 @@ class PageSeeder extends Seeder
             'value' => '10',
             'icon' => 'icofont-document-folder',
             'type' => 'page',
+            'entity_id' => $template2_page3->id,
+            'entity_type' => Page::class,
         ]);
 
         $template2_page3_information3 = Information::create([
@@ -67,19 +69,8 @@ class PageSeeder extends Seeder
             'value' => '10',
             'icon' => 'icofont-live-support',
             'type' => 'page',
-        ]);
-
-        $template2_page3->pageInformation()->create([
-            'information_id' => $template2_page3_information1->id,
-            'page_id' => $template2_page3->id
-        ]);
-        $template2_page3->pageInformation()->create([
-            'information_id' => $template2_page3_information2->id,
-            'page_id' => $template2_page3->id
-        ]);
-        $template2_page3->pageInformation()->create([
-            'information_id' => $template2_page3_information3->id,
-            'page_id' => $template2_page3->id
+            'entity_id' => $template2_page3->id,
+            'entity_type' => Page::class,
         ]);
 
 
@@ -94,58 +85,44 @@ class PageSeeder extends Seeder
             'key' => 'HTML',
             'value' => '50',
             'type' => 'page',
+            'entity_id' => $template2_page4->id,
+            'entity_type' => Page::class,
         ]);
         $template2_page4_information2 = Information::create([
             'key' => 'CSS',
             'value' => '50',
             'type' => 'page',
+            'entity_id' => $template2_page4->id,
+            'entity_type' => Page::class,
         ]);
         $template2_page4_information3 = Information::create([
             'key' => 'JavaScript',
             'value' => '50',
             'type' => 'page',
+            'entity_id' => $template2_page4->id,
+            'entity_type' => Page::class,
         ]);
         $template2_page4_information4 = Information::create([
             'key' => 'Jquery',
             'value' => '50',
             'type' => 'page',
+            'entity_id' => $template2_page4->id,
+            'entity_type' => Page::class,
         ]);
         $template2_page4_information5 = Information::create([
             'key' => 'Bootstrap',
             'value' => '50',
             'type' => 'page',
+            'entity_id' => $template2_page4->id,
+            'entity_type' => Page::class,
         ]);
         $template2_page4_information6 = Information::create([
             'key' => 'PHP',
             'value' => '50',
             'type' => 'page',
+            'entity_id' => $template2_page4->id,
+            'entity_type' => Page::class,
         ]);
-
-        $template2_page4->pageInformation()->create([
-            'information_id' => $template2_page4_information1->id,
-            'page_id' => $template2_page4->id
-        ]);
-        $template2_page4->pageInformation()->create([
-            'information_id' => $template2_page4_information2->id,
-            'page_id' => $template2_page4->id
-        ]);
-        $template2_page4->pageInformation()->create([
-            'information_id' => $template2_page4_information3->id,
-            'page_id' => $template2_page4->id
-        ]);
-        $template2_page4->pageInformation()->create([
-            'information_id' => $template2_page4_information4->id,
-            'page_id' => $template2_page4->id
-        ]);
-        $template2_page4->pageInformation()->create([
-            'information_id' => $template2_page4_information5->id,
-            'page_id' => $template2_page4->id
-        ]);
-        $template2_page4->pageInformation()->create([
-            'information_id' => $template2_page4_information6->id,
-            'page_id' => $template2_page4->id
-        ]);
-
 
         $template2_page5 = Page::create([
             'name' => 'Services',
@@ -159,6 +136,8 @@ class PageSeeder extends Seeder
             'value' => 'Building custom, dynamic websites and web applications using the Laravel framework.',
             'icon' => 'icofont-code-alt',
             'type' => 'page',
+            'entity_id' => $template2_page5->id,
+            'entity_type' => Page::class,
         ]);
 
         $template2_page5_information2 = Information::create([
@@ -166,6 +145,8 @@ class PageSeeder extends Seeder
             'value' => 'Customizing existing websites and scripts to meet your specific requirements.',
             'icon' => 'icofont-code',
             'type' => 'page',
+            'entity_id' => $template2_page5->id,
+            'entity_type' => Page::class,
         ]);
 
         $template2_page5_information3 = Information::create([
@@ -173,26 +154,9 @@ class PageSeeder extends Seeder
             'value' => 'Creating both static and dynamic websites tailored to your needs.',
             'icon' => 'icofont-web',
             'type' => 'page',
+            'entity_id' => $template2_page5->id,
+            'entity_type' => Page::class,
         ]);
-
-        $template2_page5->pageInformation()->create([
-            'information_id' => $template2_page5_information1->id,
-            'page_id' => $template2_page5->id
-        ]);
-        $template2_page5->pageInformation()->create([
-            'information_id' => $template2_page5_information2->id,
-            'page_id' => $template2_page5->id
-        ]);
-        $template2_page5->pageInformation()->create([
-            'information_id' => $template2_page5_information3->id,
-            'page_id' => $template2_page5->id
-        ]);
-
-        
-
-
-
-
        
     }
 }

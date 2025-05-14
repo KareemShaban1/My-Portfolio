@@ -97,7 +97,9 @@
                 <div class="collapse" id="sidebarInformation">
                     <ul class="side-nav-second-level">
                         <li>
-                            <a href="{{ route('information') }}">{{ __('All Information') }}</a>
+                            <a href="{{ route('information') }}">{{ __('All General Information') }}</a>
+                            <a href="{{ route('templateInformation') }}">{{ __('All Template Information') }}</a>
+                            <a href="{{ route('pageInformation') }}">{{ __('All Page Information') }}</a>
                         </li>
 
                     </ul>
@@ -225,7 +227,7 @@
                     <ul class="side-nav-second-level">
 
                         <li>
-                            <a href="{{ route('PDFs') }}">{{ __('All PDFs') }}</a>
+                            <a href="{{ route('pdfs') }}">{{ __('All PDFs') }}</a>
                         </li>
 
                     </ul>

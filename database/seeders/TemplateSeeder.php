@@ -35,6 +35,11 @@ class TemplateSeeder extends Seeder
         'name' => 'Template 2',
         'description' => 'Template 2 Description',
        ]);
+
+       $template3 = Template::create([
+        'name' => 'Template 3',
+        'description' => 'Template 3 Description',
+       ]);
        
     //    $template2->addMedia(public_path('images\template2_image.png'))
     //         ->preservingOriginal()
