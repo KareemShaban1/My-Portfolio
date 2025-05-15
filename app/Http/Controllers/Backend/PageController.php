@@ -80,8 +80,11 @@ class PageController extends Controller
 
     public function edit($id)
     {
-        $page = Page::findOrFail($id);
+        $page = Page::with(['information', 'media'])->findOrFail($id);
         $page->load('information', 'media');
+        // $information = Information::where('entity_type', Page::class)->where('entity_id', $page->id)->get();
+        // $page->info = $information;
+
         return response()->json($page);
     }
 

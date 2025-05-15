@@ -23,7 +23,7 @@ class AppServiceProvider extends ServiceProvider
     {
         //
         Relation::morphMap([
-            'page' => Page::class,
+            // 'page' => Page::class,
         ]);
     }
 }

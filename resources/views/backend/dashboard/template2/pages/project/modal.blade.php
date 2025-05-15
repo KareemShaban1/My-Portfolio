@@ -79,7 +79,9 @@
                                 <div class="card-body pad">
                                     <div class="mb-3">
                                         <textarea class="textarea" name="info" id="info" placeholder="Place some text here"
-                                            style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
+                                            style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">
+
+                                        </textarea>
                                     </div>
 
                                 </div>
@@ -93,6 +95,9 @@
                         <div class="form-group">
                             <label for="main_image" class="form-label"> {{ _('Main Image') }}<span class="text-danger">*</span></label>
                             <input class="form-control" name="main_image" id="main_image" type="file" accept="image/*">
+                            <div id="main_image_preview" class="mt-2">
+                                <!-- Preview will be inserted here -->
+                            </div>
 
                         </div>
 
@@ -100,6 +105,9 @@
                             <label for="images" class="form-label">{{ __('Images') }}<span class="text-danger">*</span></label>
                             <input class="form-control" name="images[]" id="images" type="file" accept="image/*"
                                 multiple="multiple">
+                            <div id="images_preview" class="mt-2 d-flex flex-wrap gap-2">
+                                <!-- Previews will be inserted here -->
+                            </div>
 
                         </div>
                     </div>

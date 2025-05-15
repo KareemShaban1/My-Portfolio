@@ -32,7 +32,20 @@
 @endsection
 
 @push('scripts')
+<script src="https://cdn.tiny.cloud/1/nv7068oqq6zjhc4eezadhfe89j7j4ieakunp6b037srgfd5q/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script>
+
 <script>
+    tinymce.init({
+        selector: 'textarea#info',
+        plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount',
+        toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table | align lineheight | numlist bullist indent outdent | emoticons charmap | removeformat',
+        setup: function(editor) {
+            editor.on('change', function() {
+                // Ensure the value of textarea is updated with TinyMCE content
+                tinymce.activeEditor.save();
+            });
+        }
+    });
     $(document).ready(function() {
         var table = $('#project-table').DataTable({
             processing: true,
@@ -95,6 +108,25 @@
 
         });
 
+
+        $('#main_image').on('change', function(e) {
+            previewImage(e);
+        });
+
+        function previewImage(event) {
+            const input = event.target;
+            const preview = document.getElementById('main_image');
+
+            if (input.files && input.files[0]) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    preview.src = e.target.result;
+                    preview.style.display = 'block';
+                };
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
         // Open Create Modal
         $('#addNew').click(function() {
             $('#projectForm')[0].reset();
@@ -154,6 +186,22 @@
                 $('#date').val(data.date);
                 $('#live_link').val(data.live_link);
                 $('#info').val(data.info);
+                tinymce.activeEditor.setContent(data.info);
+                // Main Image Preview
+                if (data.main_image_url) {
+                    $('#main_image_preview').html(`<img src="${data.main_image_url}" alt="Main Image" style="max-height: 150px;">`);
+                } else {
+                    $('#main_image_preview').html('');
+                }
+
+                // Images Preview
+                let imagesHtml = '';
+                if (data.images_urls && Array.isArray(data.images_urls)) {
+                    data.images_urls.forEach(function(imgUrl) {
+                        imagesHtml += `<img src="${imgUrl}" alt="Image" style="max-height: 100px; margin-right: 10px;">`;
+                    });
+                }
+                $('#images_preview').html(imagesHtml);
                 $('#projectModal').modal('show');
             });
         });

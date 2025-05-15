@@ -27,7 +27,7 @@
 
                     <div class="owl-carousel portfolio-details-carousel">
 
-                        @foreach ($project->images as $image)
+                        @foreach ($project->images_urls as $image)
 
                             <img src="{{ $image }}" class="img-fluid" alt=""
                             style="height: 260px; width: 350px;">

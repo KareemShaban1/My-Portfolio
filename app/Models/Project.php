@@ -32,6 +32,8 @@ class Project extends Model implements Viewable, HasMedia
         'info',
     ];
 
+    protected $appends = ['main_image_url', 'images_urls'];
+
 
     public function getMainImageUrlAttribute()
     {
@@ -40,7 +42,7 @@ class Project extends Model implements Viewable, HasMedia
         return $media ? $media->getUrl() : 'https://placehold.co/300x300'; // Fallback image
     }
 
-    public function getImagesAttribute()
+    public function getImagesUrlsAttribute()
     {
         return $this->getMedia('project_gallery')->map(function ($media) {
             return $media->getUrl();

@@ -136,8 +136,8 @@
 
                 <div class="col-lg-6" data-aos="fade-up">
 
-                @if ($skillsPage->information)
-                @foreach ($skillsPage->information as $info )
+                    @if ($skillsPage->information)
+                    @foreach ($skillsPage->information as $info )
                     <div class="progress">
                         <span class="skill">{{ $info->key }} <i class="val">{{ $info->value }}%</i></span>
                         <div class="progress-bar-wrap">
@@ -148,8 +148,8 @@
                     </div>
 
                     @endforeach
-                @endif
-                  
+                    @endif
+
 
                 </div>
 
@@ -250,7 +250,7 @@
 
             <div class="row">
 
-            @if($servicesPage->information)
+                @if($servicesPage->information)
                 @foreach ($servicesPage->information as $service )
 
                 <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="400">

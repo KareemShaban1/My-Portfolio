@@ -63,6 +63,7 @@ class ProjectsController extends Controller
     public function edit($id)
     {
         $project = Project::findOrFail($id);
+        
         return response()->json($project);
     }
 
