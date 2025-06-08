@@ -17,6 +17,7 @@ class Template extends Model implements HasMedia
         'description',
     ];
 
+    public $appends = ['main_image_url', 'gallery_images'];
     public function pages()
     {
         return $this->hasMany(Page::class);
@@ -24,14 +25,16 @@ class Template extends Model implements HasMedia
 
     public function getMainImageUrlAttribute()
     {
-        $media = $this->getFirstMedia('template_image'); // Corrected method usage
+        $media = $this->getFirstMedia('template_image');
 
-        return $media ? $media->getUrl() : 'https://placehold.co/300x300'; // Fallback image
+        return $media ? $media->getUrl() : 'https://placehold.co/300x300';
     }
 
     public function getGalleryImagesAttribute()
     {
-        return $this->getMedia('template_gallery');
+        return $this->getMedia('template_gallery')->map(function ($media) {
+            return $media->getUrl();
+        })->toArray();
 
     }
 }

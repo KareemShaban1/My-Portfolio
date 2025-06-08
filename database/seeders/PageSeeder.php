@@ -15,6 +15,51 @@ class PageSeeder extends Seeder
     public function run(): void
     {
         //
+
+        $template1_page1 = Page::create([
+            'name' => 'Home',
+            'content' => 'Home content',
+            'slug' => 'home',
+            'template_id' => 1
+        ]);
+
+        $template1_page2 = Page::create([
+            'name' => 'About',
+            'content' => 'About content',
+            'slug' => 'about',
+            'template_id' => 1
+        ]);
+
+        $template1_page3 = Page::create([
+            'name' => 'Services',
+            'content' => 'Services content',
+            'slug' => 'services',
+            'template_id' => 1
+        ]);
+
+        $template1_page4 = Page::create([
+            'name' => 'Portfolio',
+            'content' => 'Portfolio content',
+            'slug' => 'portfolio',
+            'template_id' => 1
+        ]);
+
+        $template1_page5 = Page::create([
+            'name' => 'Blog',
+            'content' => 'Blog content',
+            'slug' => 'blog',
+            'template_id' => 1
+        ]);
+
+        $template1_page6 = Page::create([
+            'name' => 'Content',
+            'content' => 'Content content',
+            'slug' => 'content',
+            'template_id' => 1
+        ]);
+
+
+
         $template2_page1 = Page::create([
             'name' => 'Home',
             'content' => 'Home content',
@@ -156,6 +201,84 @@ class PageSeeder extends Seeder
             'type' => 'page',
             'entity_id' => $template2_page5->id,
             'entity_type' => Page::class,
+        ]);
+
+        $template2_page6 = Page::create([
+            'name' => 'Contact',
+            'content' => 'Contact content',
+            'slug' => 'contact',
+            'template_id' => 2
+        ]);
+
+
+        $template3_page1 = Page::create([
+            'name' => 'Home',
+            'content' => 'Home content',
+            'slug' => 'home',
+            'template_id' => 3
+        ]);
+
+        $template3_page2 = Page::create([
+            'name' => 'About',
+            'content' => 'About content',
+            'slug' => 'about',
+            'template_id' => 3
+        ]);
+
+        $template3_page3 = Page::create([
+            'name' => 'Projects',
+            'content' => 'Projects content',
+            'slug' => 'projects',
+            'template_id' => 3
+        ]);
+
+        $template3_page4 = Page::create([
+            'name' => 'Conatct',
+            'content' => 'Conatct content',
+            'slug' => 'conatct',
+            'template_id' => 3
+        ]);
+
+        $template4_page1 = Page::create([
+            'name' => 'Home',
+            'content' => 'Home content',
+            'slug' => 'home',
+            'template_id' => 4
+        ]);
+
+        $template4_page2 = Page::create([
+            'name' => 'Portfolio',
+            'content' => 'Portfolio content',
+            'slug' => 'portfolio',
+            'template_id' => 4
+        ]);
+
+        $template4_page3 = Page::create([
+            'name' => 'Gallery',
+            'content' => 'Gallery content',
+            'slug' => 'gallery',
+            'template_id' => 4
+        ]);
+
+        $template4_page4 = Page::create([
+            'name' => 'Projects',
+            'content' => 'Projects content',
+            'slug' => 'projects',
+            'template_id' => 4
+        ]);
+
+        $template4_page5 = Page::create([
+            'name' => 'About',
+            'content' => 'About content',
+            'slug' => 'about',
+            'template_id' => 4
+        ]);
+
+        $template4_page6 = Page::create([
+            'name' => 'Blog',
+            'content' => 'Blog content',
+            'slug' => 'blog',
+            'template_id' => 4
         ]);
        
     }

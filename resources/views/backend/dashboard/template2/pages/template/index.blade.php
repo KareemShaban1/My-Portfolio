@@ -2,8 +2,10 @@
 
 @section('content')
 <div class="container">
-    <h2 class="mb-4">{{ __('Template') }}</h2>
-    <button class="btn btn-success mb-3" id="addNew">{{ __('Add Template') }}</button>
+    <div class="d-flex justify-content-between align-items-center mt-3">
+        <h2 class="mb-4">{{ __('Template') }}</h2>
+        <button class="btn btn-success mb-3" id="addNew">{{ __('Add Template') }}</button>
+    </div>
 
     <div class="row">
         <div class="col-12">
@@ -136,6 +138,20 @@
                 $('#template_id').val(data.id);
                 $('#name').val(data.name);
                 $('#description').val(data.description);
+                if (data.main_image_url) {
+                    $('#main_image_preview').html(`<img src="${data.main_image_url}" alt="Main Image" style="max-height: 150px;">`);
+                } else {
+                    $('#main_image_preview').html('');
+                }
+
+                // Images Preview
+                let imagesHtml = '';
+                if (data.gallery_images && Array.isArray(data.gallery_images)) {
+                    data.gallery_images.forEach(function(imgUrl) {
+                        imagesHtml += `<img src="${imgUrl}" alt="Image" style="max-height: 100px; margin-right: 10px;">`;
+                    });
+                }
+                $('#images_preview').html(imagesHtml);
                 $('#templateModal').modal('show');
             });
         });

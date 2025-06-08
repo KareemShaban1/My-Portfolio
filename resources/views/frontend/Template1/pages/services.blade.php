@@ -33,6 +33,9 @@
                     </div>
                 </div>
                 <!-- end of title -->
+                 @php
+                 
+                 @endphp
 
                 <!-- card-1 starts -->
                 <div class="col-md-6 col-lg-4">

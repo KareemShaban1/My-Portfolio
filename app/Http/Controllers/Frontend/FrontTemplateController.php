@@ -295,4 +295,8 @@ class FrontTemplateController extends Controller
             )
         );
     }
+
+    public function template4(){
+        
+    }
 }

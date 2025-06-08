@@ -15,10 +15,10 @@ class ProjectsCategoryTableSeeder extends Seeder
     {
         //
         DB::table('projects_category')->insert([
-            ['name' => 'frontend', 'created_at' => now(), 'updated_at' => now()],
-            ['name' => 'backend', 'created_at' => now(), 'updated_at' => now()],
-            ['name' => 'flutter', 'created_at' => now(), 'updated_at' => now()],
-            // Add more category records as needed
+            ['name' => 'Frontend', 'created_at' => now(), 'updated_at' => now()],
+            ['name' => 'Backend', 'created_at' => now(), 'updated_at' => now()],
+            ['name' => 'Full Stack', 'created_at' => now(), 'updated_at' => now()],
+            ['name' => 'Flutter', 'created_at' => now(), 'updated_at' => now()],
         ]);
     }
 }

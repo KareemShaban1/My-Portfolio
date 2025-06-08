@@ -2,8 +2,12 @@
 
 @section('content')
 <div class="container">
-    <h2 class="mb-4">{{ __('Projects Categories') }}</h2>
-    <button class="btn btn-success mb-3" id="addNew">{{ __('Add Project Category') }}</button>
+
+    <div class="d-flex justify-content-between align-items-center mt-3">
+        <h2 class="mb-4">{{ __('Projects Categories') }}</h2>
+        <button class="btn btn-success mb-3" id="addNew">{{ __('Add Project Category') }}</button>
+    </div>
+
 
     <div class="row">
         <div class="col-12">

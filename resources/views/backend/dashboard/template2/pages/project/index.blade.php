@@ -2,9 +2,12 @@
 
 @section('content')
 <div class="container">
+
+    <div class="d-flex justify-content-between align-items-center mt-3">
     <h2 class="mb-4">{{__('Projects') }}</h2>
     <button class="btn btn-success mb-3" id="addNew">{{ __('Add Project') }}</button>
-
+    </div>
+ 
     <div class="row">
         <div class="col-12">
             <div class="card">
@@ -110,22 +113,47 @@
 
 
         $('#main_image').on('change', function(e) {
-            previewImage(e);
+            previewMainImage(e);
         });
 
-        function previewImage(event) {
+        function previewMainImage(event) {
             const input = event.target;
-            const preview = document.getElementById('main_image');
+            const previewContainer = $('#main_image_preview');
 
             if (input.files && input.files[0]) {
                 const reader = new FileReader();
                 reader.onload = function(e) {
-                    preview.src = e.target.result;
-                    preview.style.display = 'block';
+                    previewContainer.html(`<img src="${e.target.result}" alt="Main Image Preview" style="max-height: 150px;">`);
                 };
                 reader.readAsDataURL(input.files[0]);
+            } else {
+                previewContainer.html('');
             }
         }
+
+        $('#images').on('change', function(e) {
+            previewImages(e);
+        });
+
+        function previewImages(event) {
+            const input = event.target;
+            const previewContainer = $('#images_preview');
+            previewContainer.html(''); // Clear previous previews
+
+            if (input.files && input.files.length > 0) {
+                Array.from(input.files).forEach(file => {
+                    if (!file.type.startsWith('image/')) return;
+
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        const img = `<img src="${e.target.result}" alt="Image Preview" style="max-height: 100px; border-radius: 5px;">`;
+                        previewContainer.append(img);
+                    };
+                    reader.readAsDataURL(file);
+                });
+            }
+        }
+
 
         // Open Create Modal
         $('#addNew').click(function() {
@@ -162,11 +190,15 @@
                 success: function(response) {
                     $('#projectModal').modal('hide');
                     table.ajax.reload();
+                    $('#projectForm')[0].reset();
+                    $('#main_image_preview').html('');
+                    $('#images_preview').html('');
                     Swal.fire({
                         icon: 'success',
                         title: 'Success',
                         text: response.message
                     });
+
                 },
                 error: function(xhr) {
                     alert('Error: ' + xhr.responseJSON.error);

@@ -16,6 +16,10 @@ use App\Http\Controllers\Backend\TemplateInformationController;
 use App\Http\Controllers\Backend\TestimonialsController;
 use App\Http\Controllers\Frontend\FrontTemplateController;
 use App\Http\Controllers\Frontend\MailController;
+use App\Http\Controllers\Frontend\Template1Controller;
+use App\Http\Controllers\Frontend\Template2Controller;
+use App\Http\Controllers\Frontend\Template3Controller;
+use App\Http\Controllers\Frontend\Template4Controller;
 use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
@@ -68,6 +72,25 @@ Route::get('/contact', function () {
 Route::get('/blog', function () {
     return view('frontend.Template1.pages.blog');
 })->name('template1.blog');
+
+
+// template 1
+Route::get('/template1', [Template1Controller::class,'index'])->name('template1.home');
+
+
+// template 2
+Route::get('/template2', [Template2Controller::class,'index'])->name('template2.home');
+
+// template 3
+Route::get('/template3', [Template3Controller::class,'index'])->name('template3.home');
+
+
+
+// template 4
+Route::get('/template4', [Template4Controller::class,'index'])->name('template4.home');
+Route::get('/template4/portfolio', [Template4Controller::class,'portfolio'])->name('template4.portfolio');
+Route::get('/template4/gallery', [Template4Controller::class,'gallery'])->name('template4.gallery');
+Route::get('/template4/projects', [Template4Controller::class,'projects'])->name('template4.projects');
 
 
 Route::group([

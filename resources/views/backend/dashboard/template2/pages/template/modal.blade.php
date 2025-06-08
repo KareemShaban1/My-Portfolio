@@ -1,21 +1,21 @@
 <div class="modal fade" id="templateModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel">
-    <div class="modal-dialog" role="document">
+    <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <h4 class="modal-title">{{ __('Personal Experience') }}</h4>
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <button type="button" class="close" data-bs-dismiss="modal">&times;</button>
             </div>
             <div class="modal-body">
                 <form id="templateForm">
                     @csrf
                     <input type="hidden" id="template_id">
 
-                    <div class="form-group">
+                    <div class="form-group mb-2">
                         <label for="name" class="form-label">{{ __('Name') }}</label>
                         <input type="text" class="form-control" id="name" name="name" required>
                     </div>
 
-                    <div class="form-group">
+                    <div class="form-group mb-2">
                         <label for="description" class="form-label">{{ __('Description') }}</label>
                         <textarea class="form-control" id="description" name="description" required></textarea>
                     </div>
@@ -34,7 +34,10 @@
 
                     </div>
 
-                    <button type="submit" class="btn btn-primary">{{ __('Save') }}</button>
+                    <div class="mt-3">
+                        <button type="submit" class="btn btn-primary">{{ __('Save') }}</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ __('Close') }}</button>
+                    </div>
                 </form>
             </div>
         </div>

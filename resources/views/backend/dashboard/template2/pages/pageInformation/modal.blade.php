@@ -3,7 +3,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h4 class="modal-title">{{ __('Information') }}</h4>
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <button type="button" class="close" data-bs-dismiss="modal">&times;</button>
             </div>
             <div class="modal-body">
                 <form id="informationForm">
@@ -16,7 +16,6 @@
                     <div class="form-group">
                         <label for="entity_id">{{ __('Page') }}</label>
                         <select name="entity_id" id="entity_id" class="form-control">
-                            <!-- <option value="">{{ __('Select Page') }}</option> -->
                             @foreach ($pages as $page)
                             <option value="{{ $page->id }}">{{ $page->name }}</option>
                             @endforeach
@@ -33,7 +32,11 @@
                         <input type="text" class="form-control" id="value" name="value" required>
                     </div>
 
-                    <button type="submit" class="btn btn-primary">{{ __('Save') }}</button>
+                    <div class="mt-3">
+
+                        <button type="submit" class="btn btn-primary">{{ __('Save') }}</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ __('Close') }}</button>
+                    </div>
                 </form>
             </div>
         </div>

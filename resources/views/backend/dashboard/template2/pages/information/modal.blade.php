@@ -3,7 +3,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h4 class="modal-title">{{ __('Information') }}</h4>
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <button type="button" class="close" data-bs-dismiss="modal">&times;</button>
             </div>
             <div class="modal-body">
                 <form id="informationForm">
@@ -20,7 +20,10 @@
                         <input type="text" class="form-control" id="value" name="value" required>
                     </div>
                     
+                    <div class="mt-3">
                     <button type="submit" class="btn btn-primary">{{ __('Save') }}</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ __('Close') }}</button>
+                    </div>
                 </form>
             </div>
         </div>

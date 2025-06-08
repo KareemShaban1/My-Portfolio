@@ -2,16 +2,26 @@
     <div class="modal-dialog modal-xl" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title">{{ __('Project') }}</h4>
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title"> {{ __('Project') }}</h4>
+                <button type="button" class="close" data-bs-dismiss="modal">&times;</button>
             </div>
             <div class="modal-body">
                 <form id="projectForm" enctype="multipart/form-data">
                     @csrf
                     <input type="hidden" id="project_id">
 
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="title" class="form-label">{{ __('Title') }}</label>
+                                <input type="text" class="form-control" id="title" name="title"
+                                    placeholder="Title">
+                            </div>
+                        </div>
+                    </div>
+
                     <div class="row mb-2">
-                        <div class="col-md-6">
+                        <div class="col-md-4">
                             <div class="form-group">
                                 <label class="form-label">{{ __('Category') }}</label>
                                 <select name="category_id" class="form-control select2" style="width: 100%;">
@@ -23,24 +33,16 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-4">
                             <div class="form-group">
                                 <label for="date" class="form-label">{{ __('Date') }}</label>
                                 <input type="date" class="form-control" id="date" name="date"
                                     placeholder="Date">
                             </div>
                         </div>
-                    </div>
 
-                    <div class="row mb-2">
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="title" class="form-label">{{ __('Title') }}</label>
-                                <input type="text" class="form-control" id="title" name="title"
-                                    placeholder="Title">
-                            </div>
-                        </div>
-                        <div class="col-md-6">
+
+                        <div class="col-md-4">
                             <div class="form-group">
                                 <label for="client" class="form-label">{{ __('Client') }}</label>
                                 <input type="text" class="form-control" id="client" name="client"
@@ -93,7 +95,7 @@
 
                     <div class="row mb-2">
                         <div class="form-group">
-                            <label for="main_image" class="form-label"> {{ _('Main Image') }}<span class="text-danger">*</span></label>
+                            <label for="main_image" class="form-label"> {{ __('Main Image') }}<span class="text-danger">*</span></label>
                             <input class="form-control" name="main_image" id="main_image" type="file" accept="image/*">
                             <div id="main_image_preview" class="mt-2">
                                 <!-- Preview will be inserted here -->
@@ -112,7 +114,10 @@
                         </div>
                     </div>
 
-                    <button type="submit" class="btn btn-primary">{{ __('Save') }}</button>
+                    <div class="mt-3">
+                        <button type="submit" class="btn btn-primary">{{ __('Save') }}</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ __('Close') }}</button>
+                    </div>
                 </form>
             </div>
         </div>

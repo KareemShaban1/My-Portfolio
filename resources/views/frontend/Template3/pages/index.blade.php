@@ -233,9 +233,9 @@
 
                     @endforeach
 
-                  
 
-           
+
+
 
                 </div> <!-- end swiper-wrapper -->
 

@@ -3,7 +3,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h4 class="modal-title">{{ __('Template') }}</h4>
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <button type="button" class="close" data-bs-dismiss="modal">&times;</button>
             </div>
             <div class="modal-body">
                 <form id="pageForm" enctype="multipart/form-data">
@@ -138,7 +138,11 @@
                         </div>
                     </div>
 
-                    <button type="submit" class="btn btn-primary">{{ __('Save') }}</button>
+                    <div class="mt-3">
+
+                        <button type="submit" class="btn btn-primary">{{ __('Save') }}</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ __('Close') }}</button>
+                    </div>
                 </form>
             </div>
         </div>
@@ -161,24 +165,24 @@
     function previewMultipleImages(input, previewContainerId) {
         const previewContainer = document.getElementById(previewContainerId);
         previewContainer.innerHTML = '';
-        
+
         if (input.files && input.files.length > 0) {
             document.getElementById(previewContainerId + 'Container').style.display = 'block';
-            
+
             for (let i = 0; i < input.files.length; i++) {
                 const reader = new FileReader();
                 reader.onload = function(e) {
                     const imgWrapper = document.createElement('div');
                     imgWrapper.className = 'position-relative mr-2 mb-2';
                     imgWrapper.style.width = '120px';
-                    
+
                     const img = document.createElement('img');
                     img.src = e.target.result;
                     img.className = 'img-thumbnail';
                     img.style.width = '100%';
                     img.style.height = '100px';
                     img.style.objectFit = 'cover';
-                    
+
                     const removeBtn = document.createElement('button');
                     removeBtn.type = 'button';
                     removeBtn.className = 'btn btn-xs btn-danger position-absolute';
@@ -189,7 +193,7 @@
                         imgWrapper.remove();
                         // You might want to also remove the corresponding file from the input.files array
                     };
-                    
+
                     imgWrapper.appendChild(img);
                     imgWrapper.appendChild(removeBtn);
                     previewContainer.appendChild(imgWrapper);

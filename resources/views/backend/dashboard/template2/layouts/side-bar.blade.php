@@ -80,7 +80,7 @@
                 <div class="collapse" id="sidebarPage">
                     <ul class="side-nav-second-level">
                         <li>
-                            <a href="{{ route('pages.create') }}"> {{ __('Create Page') }} </a>
+                            <a href="{{ route('pages.create') }}"> {{ __('Add Page') }} </a>
                             <a href="{{ route('pages') }}">{{ __('All Pages') }}</a>
                         </li>
                     </ul>
